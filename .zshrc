@@ -75,7 +75,7 @@ DISABLE_UPDATE_PROMPT="true"
 plugins=(
  git
  vi-mode
- zsh-completions
+ zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -108,7 +108,14 @@ source $ZSH/oh-my-zsh.sh
 alias szsh='subl ~/.zshrc'
 alias vzsh='vim ~/.zshrc'
 alias ll="ls -la"
-alias ls="ls -la"
+alias lr="ls -lRFh"
+alias lt="ls -ltFh"
+alias l="ls -lFh"
+alias lS='ls -1FSsh'
+alias lart='ls -1Fcart'
+alias lrt='ls -1Fcrt'
+alias ls='ls -laFh'
+
 alias cd..="cd .."
 alias cd2.="cd ../.."
 alias cd3.="cd ../../.."
@@ -135,6 +142,9 @@ alias push='git push origin'
 alias status='git status'
 alias tag='git tag'
 alias newtag='git tag -a'
+
+alias grep='grep --color'
+alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 mkcdir ()
 {
