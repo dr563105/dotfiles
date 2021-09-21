@@ -1,0 +1,52 @@
+File search related:
+
+#of files in a directory -
+ls -l . | egrep -c '^-'
+
+grep through hugh number of files == find . | xargs -n16 -P8 grep -H "string"
+
+find ./img -name "*2020-07-07T14:21:34.057825*"
+
+Faster way to display files count -
+find -maxdepth 1 -type d | while read -r dir; do printf "%s:\t" "$dir"; find "$dir" -type f | wc -l; done
+
+Machine Learning related:
+
+watch -n 0.5 nvidia-smi
+
+
+Docker related:
+
+docker learn resource -	https://github.com/docker/labs/tree/master/beginner
+docker commands -
+run docker
+docker run -it <container name> /bin/bash
+Into docker container -
+docker exec -it <container name> /bin/sh
+
+docker exec -it lanefollowing_collect /bin/bash
+
+
+a = all, q= quiet mode(only number id)
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+
+ROS related:
+
+---Build ros2 package---
+source /opt/ros/crystal/setup.bash
+cd ~/ros2_ws
+colcon build --symlink-install
+
+---Run rosbridge---
+source /opt/ros/crystal/setup.bash
+rosbridge
+
+--Running ROS2 node---
+source /opt/ros/crystal/setup.bash
+source ~/ros2_ws/install/local_setup.bash
+ros2 run {your_package} {your_node}
+
+Migration tool -
+https://github.com/awslabs/ros2-migration-tools
+
