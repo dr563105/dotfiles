@@ -34,19 +34,20 @@ docker rm $(docker ps -aq)
 ROS related:
 
 ---Build ros2 package---
-source /opt/ros/crystal/setup.bash
+source /opt/ros/galactic/setup.bash
 cd ~/ros2_ws
 colcon build --symlink-install
 
 ---Run rosbridge---
-source /opt/ros/crystal/setup.bash
+source /opt/ros/galactic/setup.bash
 rosbridge
 
 --Running ROS2 node---
-source /opt/ros/crystal/setup.bash
+source /opt/ros/galactic/setup.bash
 source ~/ros2_ws/install/local_setup.bash
 ros2 run {your_package} {your_node}
 
 Migration tool -
 https://github.com/awslabs/ros2-migration-tools
+
 

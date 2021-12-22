@@ -28,15 +28,17 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     " Retro color scheme plug
     " Plug 'rafi/awesome-vim-colorschemes'
-    Plug 'morhetz/gruvbox'
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+    "Plug 'morhetz/gruvbox'
     " Plug 'phanviet/vim-monokai-pro'
     
 call plug#end()
 
 
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
-set background=dark
+"let g:gruvbox_contrast_dark = 'hard'
+" colorscheme gruvbox
+colorscheme tokyonight
+" set background=dark
 
 "settings for ultisnips
 "let g:UltiSnipsSnippetDirectories=['UltiSnips']
