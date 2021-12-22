@@ -22,6 +22,17 @@ brew reinstall neovim
 
 For Ubuntu, use this [link](https://github.com/neovim/neovim/wiki/Installing-Neovim#ubuntu).
 
+## vim-plug
+[link](https://github.com/junegunn/vim-plug).
+
+To install
+
+```shell
+sh -c curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+
 ## GNU Stow
 
 GNU Stow is installed through homebrew `brew install stow`

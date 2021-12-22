@@ -1,12 +1,15 @@
-" auto-install vim-plug
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-   autocmd VimEnter * PlugInstall
-   autocmd VimEnter * PlugInstall | source $MYVIMRC
+"All plugin related go here
+
+" --- Auto install vim-plug if absent
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.config/nvim/autoload/plugged')
+
+" --- Plugins
+call plug#begin('~/.config/nvim/plugged')
    
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
@@ -16,6 +19,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     "For tags
     "Plug 'ludovicchabant/vim-gutentags' 
+    
+    "For commentary
+    Plug 'tpope/vim-commentary'
 
     "To git
     Plug 'tpope/vim-fugitive' | Plug 'mhinz/vim-signify'
@@ -28,17 +34,25 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     " Retro color scheme plug
     " Plug 'rafi/awesome-vim-colorschemes'
-    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-    "Plug 'morhetz/gruvbox'
+    "Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+    Plug 'morhetz/gruvbox'
     " Plug 'phanviet/vim-monokai-pro'
     
+    " Install telescope
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+
 call plug#end()
 
 
-"let g:gruvbox_contrast_dark = 'hard'
-" colorscheme gruvbox
-colorscheme tokyonight
-" set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
+"colorscheme tokyonight
+set background=dark
+
+" --- Require plugin configs. Format - namespace.dir-name.plugin-name
+lua require('deepak.nvim-plugins.telescope')
+
 
 "settings for ultisnips
 "let g:UltiSnipsSnippetDirectories=['UltiSnips']
