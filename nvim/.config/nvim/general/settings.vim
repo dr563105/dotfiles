@@ -75,31 +75,31 @@ endfunction
 " --- status bar colors
 au InsertEnter * hi statusline guifg=black guibg=#d7afff ctermfg=black ctermbg=magenta
 au InsertLeave * hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
-hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
+" hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
 
-" --- Statusline customisation
-set statusline=
-set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
-set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
-set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
-set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
-set statusline+=\ %n\           " buffer number
-set statusline+=%#Visual#       " colour
-set statusline+=%{&paste?'\ PASTE\ ':''}
-set statusline+=%{&spell?'\ SPELL\ ':''}
-set statusline+=%#CursorIM#     " colour
-set statusline+=%{FugitiveStatusline()}
-set statusline+=%R                        " readonly flag
-set statusline+=%M                        " modified [+] flag
-set statusline+=%#Cursor#               " colour
-set statusline+=%#CursorLine#     " colour
-set statusline+=\ %t\                   " short file name
-set statusline+=%=                          " right align
-set statusline+=%#CursorLine#   " colour
-set statusline+=\ %Y\                   " file type
-set statusline+=%#CursorIM#     " colour
-set statusline+=\ ln:%02l/%L\ col:%-2c\         " line/total lines
-set statusline+=%#Cursor#       " colour
-set statusline+=\ %3p%%\                " percentage
+" " --- Statusline customisation
+" set statusline=
+" set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+" set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
+" set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
+" set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+" set statusline+=\ %n\           " buffer number
+" set statusline+=%#Visual#       " colour
+" set statusline+=%{&paste?'\ PASTE\ ':''}
+" set statusline+=%{&spell?'\ SPELL\ ':''}
+" set statusline+=%#CursorIM#     " colour
+" set statusline+=%{FugitiveStatusline()}
+" set statusline+=%R                        " readonly flag
+" set statusline+=%M                        " modified [+] flag
+" set statusline+=%#Cursor#               " colour
+" set statusline+=%#CursorLine#     " colour
+" set statusline+=\ %t\                   " short file name
+" set statusline+=%=                          " right align
+" set statusline+=%#CursorLine#   " colour
+" set statusline+=\ %Y\                   " file type
+" set statusline+=%#CursorIM#     " colour
+" set statusline+=\ ln:%02l/%L\ col:%-2c\         " line/total lines
+" set statusline+=%#Cursor#       " colour
+" set statusline+=\ %3p%%\                " percentage
 
 

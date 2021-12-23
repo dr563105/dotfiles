@@ -37,10 +37,17 @@ call plug#begin('~/.config/nvim/plugged')
     "Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     Plug 'morhetz/gruvbox'
     " Plug 'phanviet/vim-monokai-pro'
-    
+
     " Install telescope
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    " General
+    Plug 'kyazdani42/nvim-web-devicons'                " Devicons
+    Plug 'nvim-lualine/lualine.nvim'                   " Status line
+
+    " LSP
+    Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
@@ -50,8 +57,10 @@ colorscheme gruvbox
 "colorscheme tokyonight
 set background=dark
 
-" --- Require plugin configs. Format - namespace.dir-name.plugin-name
+" --- Require plugin configs specially written for nvim. Format - namespace.dir-name.plugin-name
 lua require('deepak.nvim-plugins.telescope')
+lua require('deepak.nvim-plugins.lualine')
+lua require('deepak.nvim-plugins.lsp_config')
 
 
 "settings for ultisnips
