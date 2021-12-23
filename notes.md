@@ -22,7 +22,7 @@ brew reinstall neovim
 
 For Ubuntu, use this [link](https://github.com/neovim/neovim/wiki/Installing-Neovim#ubuntu).
 
-## vim-plug
+### vim-plug
 [link](https://github.com/junegunn/vim-plug).
 
 To install
@@ -32,9 +32,11 @@ sh -c curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
+### Dependent packages for nvim
+Plugin/packages/language servers such as `pyright`, `ripgrep`, `fd` are installed using `brew install ...`
 
 ## GNU Stow
 
 GNU Stow is installed through homebrew `brew install stow`
 
-
+Helpful resource - https://www.jakewiesler.com/blog/managing-dotfiles
