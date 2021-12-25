@@ -12,6 +12,10 @@ ZSH_THEME="robbyrussell"
 # shortcut to this dotfiles path is $DOTFILES
 export DOTFILES="$HOME/.dotfiles"
 
+bindkey -v
+
+source $ZSH/oh-my-zsh.sh
+source $HOME/.zsh_plugins.sh
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -35,11 +39,18 @@ DISABLE_UPDATE_PROMPT="true"
 #  zsh-autosuggestions
 # )
 
-source $ZSH/oh-my-zsh.sh
-source $HOME/.zsh_plugins.sh
-# Example aliases
+
+autoload -Uz compinit 
+compinit
+
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+export OPENSSL_ROOT_DIR=/opt/homebrew/opt/openssl@1.1
+
+# ---- aliases -----
 alias szsh='subl ~/.zshrc'
 alias vzsh='vim ~/.zshrc'
+alias zsh='source ~/.zshrc'
 alias ll="ls -la"
 alias lr="ls -lRFh"
 alias lt="ls -ltFh"
@@ -103,12 +114,6 @@ export PATH=/opt/homebrew/bin/git:$PATH
 export PATH=/usr/local/texlive/2020/bin/x86_64-darwin:$PATH
 export MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH
 export INFOPATH=usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH
-
-autoload -Uz compinit
-compinit
-# Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
-export OPENSSL_ROOT_DIR=/opt/homebrew/opt/openssl@1.1
 
 #PROMPT='%2~ %# ' 
 # >>> conda initialize >>>

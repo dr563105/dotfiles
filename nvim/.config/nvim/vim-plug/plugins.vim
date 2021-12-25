@@ -48,6 +48,12 @@ call plug#begin('~/.config/nvim/plugged')
 
     " LSP
     Plug 'neovim/nvim-lspconfig'
+    "Autocomplete   
+    Plug 'hrsh7th/nvim-cmp' " -- Autocompletion plugin
+    Plug 'hrsh7th/cmp-nvim-lsp' " -- LSP source for nvim-cmp
+    Plug 'saadparwaiz1/cmp_luasnip' " -- Snippets source for nvim-cmp
+    Plug 'L3MON4D3/LuaSnip' " -- Snippets plugin
+    Plug 'onsails/lspkind-nvim' " -- vscode-like pictograms 
 
 call plug#end()
 
@@ -61,7 +67,6 @@ set background=dark
 lua require('deepak.nvim-plugins.telescope')
 lua require('deepak.nvim-plugins.lualine')
 lua require('deepak.nvim-plugins.lsp_config')
-
 
 "settings for ultisnips
 "let g:UltiSnipsSnippetDirectories=['UltiSnips']
