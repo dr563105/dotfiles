@@ -8,6 +8,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 
+
 " --- Plugins
 call plug#begin('~/.config/nvim/plugged')
    
@@ -16,8 +17,10 @@ call plug#begin('~/.config/nvim/plugged')
     
     " Vim Latex plugin
     Plug 'lervag/vimtex'
-    
-    "For tags
+   
+    " Markdown Syntax highlight(Treesitter markdown is incomplete)
+    Plug 'vim-pandoc/vim-pandoc-syntax'
+    "For tags(be careful opening ros 'opt' files --endless parsering) 
     "Plug 'ludovicchabant/vim-gutentags' 
     
     "For commentary
@@ -26,15 +29,9 @@ call plug#begin('~/.config/nvim/plugged')
     "To git
     Plug 'tpope/vim-fugitive' | Plug 'mhinz/vim-signify'
 
-    " Autocomplete 
-    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    " Plug 'deoplete-plugins/deoplete-clang'
-    " Ultisnpis
-    " Plug 'sirver/ultisnips'
-    
     " Retro color scheme plug
-    " Plug 'rafi/awesome-vim-colorschemes'
-    "Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+    Plug 'rafi/awesome-vim-colorschemes'
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     Plug 'morhetz/gruvbox'
     " Plug 'phanviet/vim-monokai-pro'
 
@@ -44,8 +41,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
     " General
     Plug 'kyazdani42/nvim-web-devicons'                " Devicons
+    Plug 'kyazdani42/nvim-tree.lua'
     Plug 'nvim-lualine/lualine.nvim'                   " Status line
-
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
     " LSP
     Plug 'neovim/nvim-lspconfig'
     "Autocomplete   
@@ -58,16 +56,16 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 
 
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
-"colorscheme tokyonight
-set background=dark
+" let g:gruvbox_contrast_dark = 'hard'
+colorscheme afterglow
+" set background=dark
 
 " --- Require plugin configs specially written for nvim. Format - namespace.dir-name.plugin-name
-lua require('deepak.nvim-plugins.telescope')
-lua require('deepak.nvim-plugins.lualine')
-lua require('deepak.nvim-plugins.lsp_config')
-
+lua require('deepak.telescope')
+lua require('deepak.lualine')
+lua require('deepak.lsp_config')
+lua require('deepak.nvim-tree')
+lua require('deepak.treesitter')
 "settings for ultisnips
 "let g:UltiSnipsSnippetDirectories=['UltiSnips']
 "let g:UltiSnipsExpandTrigger = '<tab>'
@@ -81,6 +79,12 @@ let g:tex_conceal='abdgms'
 let g:vimtex_compiler_latexmk = {
         \ 'build_dir' : 'build',
         \}
+
+"settings for vim-pandoc-syntax 
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
+
 "let g:vimtex_viewer_zathura_options = '-x \"nvr --remote +%{line} %{input}"'
 "let g:vimtex_compiler_progname = 'nvr'
 "let g:vimtex_view_method='zathura'

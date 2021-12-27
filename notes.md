@@ -1,4 +1,22 @@
 # Notes
+## ZSH and related
+
+```shell
+brew install zsh
+```
+
+To use zsh ability to use plugins to bring in features and also be aware of performance,
+**antibody**, a framework is used to install plugins. 
+
+```shell
+brew install antibody
+```
+All plugins necessary go inside a text file and that file is bundled to a shell script. 
+
+```bash
+antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+echo -n 'source ~/.zsh_plugins.sh' >> ~/.zshrc
+```
 
 ## Neovim
 
@@ -13,11 +31,12 @@ brew install neovim
 ### Development version
 
 ```bash
-brew install --HEAD luajit
-brew install --HEAD neovim
+brew install --HEAD luajit neovim
 
 To update dev version,
 brew reinstall neovim
+or
+brew upgrade neovim
 ```
 
 For Ubuntu, use this [link](https://github.com/neovim/neovim/wiki/Installing-Neovim#ubuntu).
@@ -40,3 +59,10 @@ Plugin/packages/language servers such as `pyright`, `ripgrep`, `fd` are installe
 GNU Stow is installed through homebrew `brew install stow`
 
 Helpful resource - https://www.jakewiesler.com/blog/managing-dotfiles
+
+## Kitty Terminal
+
+### Themes
+Easiest way to preview and download themes is `kitty +kitten themes`.
+
+

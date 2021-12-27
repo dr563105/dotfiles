@@ -5,8 +5,8 @@ nnoremap <M-h>    :vertical resize -2<CR>
 nnoremap <M-l>    :vertical resize +2<CR>
 
 " Split window horizontally or vertically
-map <leader>s w h <C-w> s
-map <leader>s w v <C-w> v
+nnoremap ,h <C-w>s
+nnoremap ,v <C-w>v
 
 " Better window navigation
 nnoremap <C-h> <C-w>h
@@ -15,10 +15,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Buffer between buffers
-map <leader>j :bnext<cr>
-map <leader>h :bprevious<cr>
+noremap <leader>j :bnext<cr>
+noremap <leader>h :bprevious<cr>
 
-"I hate escape more than anything else
+" A quick way to escape to normal mode. 
 inoremap jk <Esc>
 
 " Alternate way to save
@@ -54,9 +54,4 @@ nmap <localleader>ll <plug>(vimtex-compile)
 nmap <localleader>lL <plug>(vimtex-compile-output)
 nmap <localleader>lr <plug>(vimtex-reverse-search)
 nmap <localleader>lg <plug>(vimtex-status)
-
-
-
-
-
 
