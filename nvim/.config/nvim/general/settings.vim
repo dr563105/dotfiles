@@ -9,6 +9,7 @@ set hidden                              " Required to keep multiple buffers open
 set nowrap                              " Display long lines as just one line
 set noswapfile                          " Doesn't create swapfiles
 set termguicolors
+set background=dark
 
 set pumheight=10                        " Makes popup menu smaller
 set undodir=~/.config/nvim/undodir
@@ -33,7 +34,7 @@ set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 
 "pbcopy is auto installed in mac. For ubuntu install xsel or xclip through apt package.
-set clipboard=unnamedplus               " Copy paste between vim and everything else
+set clipboard+=unnamedplus               " Copy paste between vim and everything else
 
 "Search
 set hlsearch incsearch                  " Enable incremental search 
@@ -44,6 +45,9 @@ set ignorecase " Ignore case when searching
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType tex,latex,markdown setlocal spell spelllang=en_gb
+
+highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
+
 
 set statusline=\ %{HasPaste()}%f%m%r%h\ %w\ Line:\ %l/%L[\%p%%]\ \ Column:\ %c
 "\ CWD:\ %r%{getcwd()}%h\ \ \

@@ -8,7 +8,7 @@ nnoremap <M-l>    :vertical resize +2<CR>
 nnoremap ,h <C-w>s
 nnoremap ,v <C-w>v
 
-" Better window navigation
+" Better window navigation(move between windows)
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -22,6 +22,7 @@ noremap <leader>h :bprevious<cr>
 inoremap jk <Esc>
 
 " Alternate way to save
+inoremap <C-s> <Esc>:w<CR>
 nnoremap <C-s> :w<CR>
 " Alternate way to quit
 nnoremap <C-Q> :wq!<CR>
@@ -32,6 +33,8 @@ map <C-a> ggVG
 "Copying to both clipboard and primary selection. Great for linux users.
 vnoremap <C-c> "*y :let @+=@*<CR>
 map <C-v> "+P
+" map <C-v> "_P
+"To swap two line use 'ddp'
 
 " Better tabbing
 vnoremap < <gv
@@ -55,3 +58,6 @@ nmap <localleader>lL <plug>(vimtex-compile-output)
 nmap <localleader>lr <plug>(vimtex-reverse-search)
 nmap <localleader>lg <plug>(vimtex-status)
 
+"Folding with nvim-treesitter
+"Use keys 'zc' to close folds, 'zo' to open one fold, 
+"and 'zO' to recursively open all.

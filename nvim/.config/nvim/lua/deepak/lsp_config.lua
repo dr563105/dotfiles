@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap('n', '<C-e>', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
@@ -36,15 +36,15 @@ capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 --- nvim-cmp
 local cmp = require('cmp')
-local lspkind = require('lspkind')
-local luasnip = require('luasnip')
+-- local lspkind = require('lspkind')
+-- local luasnip = require('luasnip')
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menuone,noselect,noinsert'
 cmp.setup{
   formatting = {
     -- Formatting with lspkind icons
-    format = lspkind.cmp_format()
+    -- format = lspkind.cmp_format()
   },
   mapping = {
    ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -61,8 +61,8 @@ cmp.setup{
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
+      -- elseif luasnip.expand_or_jumpable() then
+      --   luasnip.expand_or_jump()
       else
         fallback()
       end
@@ -70,21 +70,15 @@ cmp.setup{
     ['<-Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
+      -- elseif luasnip.jumpable(-1) then
+      --   luasnip.jump(-1)
       else
         fallback()
       end
     end,
   },
-  snippet = {
-    expand = function(args)
-        luasnip.lsp_expand(args.body)
-    end
-  },
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' }
+    { name = 'nvim_lsp' }
   },
 }
 local servers = {'pyright'}

@@ -60,6 +60,13 @@ GNU Stow is installed through homebrew `brew install stow`
 
 Helpful resource - https://www.jakewiesler.com/blog/managing-dotfiles
 
+## Tree command for directory tree
+A pretty awesome tool to display a directory's tree structure. See [here](http://mama.indstate.edu/users/ice/tree/index.html)  
+
+```bash
+brew install tree #for mac
+sudo apt install tree #for ubuntu
+```
 ## Kitty Terminal
 
 ### Themes
