@@ -1,3 +1,70 @@
 {
-    "workbench.startupEditor": "none"
+    "workbench.colorTheme": "Nord",
+    "workbench.startupEditor": "none",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorCustomizations": {
+        "[Tokyo Night]": {
+            // or "[Tokyo Night Storm]"
+            "editorCodeLens.foreground": "#7982a9", // Preferred hex color
+            "window.activeBorder": "#ff0000",
+            "window.inactiveBorder": "#0000ff"
+        }
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.tabWidth": 4,
+
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.cursorBlinking": "smooth",
+    //For linux
+    //"editor.fontFamily": "Fira Code Retina",
+    "editor.fontFamily": "FiraCode-Retina",
+    "editor.fontLigatures": true,
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 16,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+
+    "terminal.integrated.fontSize": 16,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 10000,
+    "search.showLineNumbers": true,
+    "telemetry.telemetryLevel": "off",
+    "breadcrumbs.enabled": true,
+
+    "vim.leader": "<space>",
+    "vim.enableNeovim": true,
+    "vim.surround": true,
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.replace": "line",
+    "vim.cursorStylePerMode.visual": "block",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "w"],
+            "commands": ["workbench.action.splitEditor"]
+        },
+        {
+            "before": ["<leader>", "e"],
+            "commands": ["workbench.action.toggleSidebarVisibility"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [">"],
+            "after": [">", "g", "v"]
+        },
+        {
+            "before": ["<"],
+            "after": ["<", "g", "v"]
+        }
+    ],
+    "editor.lineNumbers": "relative"
 }

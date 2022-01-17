@@ -1,37 +1,70 @@
 {
-    "explorer.confirmDelete": false,
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
-    },
-    "workbench.colorTheme": "Gruvbox Light (Soft)",
-    "terminal.integrated.inheritEnv": false,
-    "terminal.external.linuxExec": "xterm-256colour",
-    "terminal.external.osxExec": "kitty.app",
-    "jupyter.jupyterServerType": "remote",
-    "[python]": {
-        "editor.tabSize": 4
-      },
-    "files.eol": "\n",
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "python.defaultInterpreterPath": "/opt/homebrew/Caskroom/miniforge/base/envs/jupnet/bin/python",
+    "workbench.colorTheme": "Nord",
     "workbench.startupEditor": "none",
-    "jupyter.askForKernelRestart": false,
-    "workbench.preferredHighContrastColorTheme": "Gruvbox Dark (Medium)",
-    "workbench.preferredDarkColorTheme": "Gruvbox Dark (Medium)",
-    "remote.SSH.connectTimeout": 60,
-    "C_Cpp.default.cppStandard": "c++20",
-    "C_Cpp.default.intelliSenseMode": "macos-clang-arm64",
-    "editor.renderWhitespace": "all",
-    "window.zoomLevel": 1,
-    "vim.cursorStylePerMode.normal": "block",
-    "vim.leader": "/",
-    "workbench.statusBar.visible": false,
-    "breadcrumbs.enabled": false,
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorCustomizations": {
+        "[Tokyo Night]": {
+            // or "[Tokyo Night Storm]"
+            "editorCodeLens.foreground": "#7982a9", // Preferred hex color
+            "window.activeBorder": "#ff0000",
+            "window.inactiveBorder": "#0000ff"
+        }
     },
-    "jupyter.ignoreVscodeTheme": true
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.tabWidth": 4,
+
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.cursorBlinking": "smooth",
+    //For linux
+    //"editor.fontFamily": "Fira Code Retina",
+    "editor.fontFamily": "FiraCode-Retina",
+    "editor.fontLigatures": true,
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 16,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+
+    "terminal.integrated.fontSize": 16,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 10000,
+    "search.showLineNumbers": true,
+    "telemetry.telemetryLevel": "off",
+    "breadcrumbs.enabled": true,
+
+    "vim.leader": "<space>",
+    "vim.surround": true,
+    "vim.enableNeovim": true,
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.replace": "line",
+    "vim.cursorStylePerMode.visual": "block",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "w"],
+            "commands": ["workbench.action.splitEditor"]
+        },
+        {
+            "before": ["<leader>", "e"],
+            "commands": ["workbench.action.toggleSidebarVisibility"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [">"],
+            "after": [">", "g", "v"]
+        },
+        {
+            "before": ["<"],
+            "after": ["<", "g", "v"]
+        }
+    ],
+    "editor.lineNumbers": "relative"
 }

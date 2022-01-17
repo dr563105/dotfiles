@@ -48,7 +48,7 @@ kitty + complete setup zsh | source /dev/stdin
 export OPENSSL_ROOT_DIR=/opt/homebrew/opt/openssl@1.1
 
 # ---- aliases -----
-alias szsh='subl ~/.zshrc'
+alias suzsh='subl ~/.zshrc'
 alias vzsh='vim ~/.zshrc'
 alias zsh='source ~/.zshrc'
 alias ll="ls -la"

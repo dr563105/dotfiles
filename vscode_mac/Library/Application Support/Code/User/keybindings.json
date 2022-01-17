@@ -1,0 +1,18 @@
+// Place your key bindings in this file to override the defaults
+[
+    { "key": "cmd+1", "command": "workbench.action.openEditorAtIndex1" },
+    { "key": "cmd+2", "command": "workbench.action.openEditorAtIndex2" },
+    { "key": "cmd+3", "command": "workbench.action.openEditorAtIndex3" },
+    { "key": "cmd+4", "command": "workbench.action.openEditorAtIndex4" },
+
+    { "key": "ctrl+tab", "command": "workbench.action.nextEditor" },
+    { "key": "ctrl+shift+tab", "command": "workbench.action.previousEditor" },
+
+    // { "key": "g shift+d", "command": "editor.action.goToTypeDefinition" },
+    // { "key": "g+r", "command": "editor.action.goToReferences" }
+    {
+        "key": "ctrl+space",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
+    }
+]
