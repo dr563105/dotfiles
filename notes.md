@@ -73,3 +73,13 @@ sudo apt install tree #for ubuntu
 Easiest way to preview and download themes is `kitty +kitten themes`.
 
 
+### VS CODE 
+**Install**
+`brew install --cask visual-studio-code`
+
+**Uninstall**
+use this link to uninstall the app in vs code -- https://stackoverflow.com/a/42603699, https://stackoverflow.com/a/53839847
+
+`brew uninstall visual-studio-code`
+
+

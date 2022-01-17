@@ -1,9 +1,17 @@
-local telescope = require('telescope')
+local status_ok, telescope = pcall(require, "telescope")
+if not status_ok then
+  return
+end
+
 local actions = require("telescope.actions")
 local telescope_builtin = require('telescope.builtin')
 local M = {}
 
 telescope.setup {
+    defaults = {
+        file_ignore_patterns = { "^.git/" },
+        prompt_prefix = "🔍 ",
+    },
     extensions = {
     fzf = {
       fuzzy = true,                    -- false will only do exact matching

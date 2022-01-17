@@ -1,6 +1,11 @@
 local nvim_lsp = require('lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
+require("luasnip/loaders/from_vscode").lazy_load() -- loads friendly snippets. See[here](https://github.com/L3MON4D3/LuaSnip/blob/72323c10fe2d91695f7593e572496ab9f004afee/Examples/snippets.lua#L263-L274)
 
+local check_backspace = function()
+  local col = vim.fn.col "." - 1
+  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+end
 
 -- LSP Config 
 local on_attach = function(client, bufnr)
@@ -33,26 +38,57 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
-
 --- nvim-cmp
-local cmp = require('cmp')
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+  return
+end
 -- local lspkind = require('lspkind')
--- local luasnip = require('luasnip')
-
+local snip_status_ok, luasnip = pcall(require, "luasnip")
+if not snip_status_ok then
+  return
+end
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect,noinsert'
+
+
+--   פּ ﯟ   some other good icons
+local kind_icons = {
+  Text = "",
+  Method = "m",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+}
+
 cmp.setup{
-  formatting = {
-    -- Formatting with lspkind icons
-    -- format = lspkind.cmp_format()
-  },
   mapping = {
-   ['<C-p>'] = cmp.mapping.select_prev_item(),
-   ['<C-n>'] = cmp.mapping.select_next_item(),
-   ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-   ['<C-f>'] = cmp.mapping.scroll_docs(4),
-   ['<C-Space>'] = cmp.mapping.complete(),
-   ['<C-e>'] = cmp.mapping.close(),
+   -- ['<C-p>'] = cmp.mapping.select_prev_item(),
+   -- ['<C-n>'] = cmp.mapping.select_next_item(),
+   -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+   -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+   -- ['<C-Space>'] = cmp.mapping.complete(),
+   -- ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
@@ -61,26 +97,56 @@ cmp.setup{
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      -- elseif luasnip.expand_or_jumpable() then
-      --   luasnip.expand_or_jump()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif check_backspace() then
+        fallback()
       else
         fallback()
       end
     end,
-    ['<-Tab>'] = function(fallback)
+    ['<S-Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      -- elseif luasnip.jumpable(-1) then
-      --   luasnip.jump(-1)
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
+    end,
+  },
+  snippet = {
+    expand = function(args)
+        luasnip.lsp_expand(args.body)
+    end
+  },
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      -- Kind icons
+      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        -- nvim_lua = "[NVIM_LUA]",
+        luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        -- path = "[Path]",
+      })[entry.source.name]
+      return vim_item
     end,
   },
   sources = {
-    { name = 'nvim_lsp' }
+    { name = 'nvim_lsp'},
+    { name = 'luasnip'},
+    { name = 'buffers'},
   },
+    experimental = {
+        native_menu = false,
+        ghost_text = true,
+    }
 }
+
 local servers = {'pyright'}
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {

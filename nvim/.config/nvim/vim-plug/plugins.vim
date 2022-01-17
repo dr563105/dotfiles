@@ -13,12 +13,16 @@ call plug#begin('~/.config/nvim/plugged')
     " Auto pairs for '(' '[' '{'
     " Plug 'jiangmiao/auto-pairs'
     Plug 'LunarWatcher/auto-pairs' "need to update to nvim
+    
+    "NVIM surround
+    Plug 'blackcauldron7/surround.nvim'
 
     "Vim Latex plugin
     Plug 'lervag/vimtex'
    
     "For commentary
-    Plug 'tpope/vim-commentary'
+    Plug 'numToStr/Comment.nvim'
+    " Plug 'tpope/vim-commentary'
 
     "To git
     Plug 'tpope/vim-fugitive' 
@@ -45,8 +49,15 @@ call plug#begin('~/.config/nvim/plugged')
     " LSP
     Plug 'neovim/nvim-lspconfig'
     "Autocomplete   
-    Plug 'hrsh7th/nvim-cmp' " -- Autocompletion plugin
+    Plug 'hrsh7th/nvim-cmp' " -- Autocompletion core engine plugin
     Plug 'hrsh7th/cmp-nvim-lsp' " -- LSP source for nvim-cmp
+    Plug 'hrsh7th/cmp-buffer' " -- buffer completion
+    Plug 'hrsh7th/cmp-path' " -- path completion
+    Plug 'saadparwaiz1/cmp_luasnip' " -- snippet compeletion
+
+    "snippets
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'rafamadriz/friendly-snippets' " --more snippets
     " Plug 'onsails/lspkind-nvim' " -- vscode-like pictograms 
 
 call plug#end()
@@ -61,7 +72,8 @@ lua require('deepak.lsp_config')
 lua require('deepak.nvim-tree')
 lua require('deepak.treesitter')
 lua require('deepak.gitsigns')
-
+lua require('deepak.comment')
+lua require('deepak.surround')
 "settings for vimtex
 let g:tex_flavor='latex'
 set conceallevel=1

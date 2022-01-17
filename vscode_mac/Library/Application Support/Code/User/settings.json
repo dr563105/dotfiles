@@ -1,37 +1,3 @@
 {
-    "explorer.confirmDelete": false,
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
-    },
-    "workbench.colorTheme": "Gruvbox Light (Soft)",
-    "terminal.integrated.inheritEnv": false,
-    "terminal.external.linuxExec": "xterm-256colour",
-    "terminal.external.osxExec": "kitty.app",
-    "jupyter.jupyterServerType": "remote",
-    "[python]": {
-        "editor.tabSize": 4
-      },
-    "files.eol": "\n",
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "python.defaultInterpreterPath": "/opt/homebrew/Caskroom/miniforge/base/envs/jupnet/bin/python",
-    "workbench.startupEditor": "none",
-    "jupyter.askForKernelRestart": false,
-    "workbench.preferredHighContrastColorTheme": "Gruvbox Dark (Medium)",
-    "workbench.preferredDarkColorTheme": "Gruvbox Dark (Medium)",
-    "remote.SSH.connectTimeout": 60,
-    "C_Cpp.default.cppStandard": "c++20",
-    "C_Cpp.default.intelliSenseMode": "macos-clang-arm64",
-    "editor.renderWhitespace": "all",
-    "window.zoomLevel": 1,
-    "vim.cursorStylePerMode.normal": "block",
-    "vim.leader": "/",
-    "workbench.statusBar.visible": false,
-    "breadcrumbs.enabled": false,
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
-    },
-    "jupyter.ignoreVscodeTheme": true
+    "workbench.startupEditor": "none"
 }
