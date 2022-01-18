@@ -66,5 +66,6 @@
             "after": ["<", "g", "v"]
         }
     ],
-    "editor.lineNumbers": "relative"
+    "editor.lineNumbers": "relative",
+    "terminal.integrated.inheritEnv": false
 }

@@ -80,7 +80,7 @@ set conceallevel=1
 let g:tex_conceal='abdgms'
 let g:vimtex_compiler_latexmk = {'build_dir' : 'build'}
 
-let g:python3_host_prog = '/opt/homebrew/Caskroom/miniforge/base/envs/jupnet/bin/python'
+let g:python3_host_prog = '/opt/homebrew/Caskroom/miniforge/base/envs/streamlit/bin/python'
 "let g:vimtex_viewer_zathura_options = '-x \"nvr --remote +%{line} %{input}"'
 "let g:vimtex_compiler_progname = 'nvr'
 "let g:vimtex_view_method='zathura'
