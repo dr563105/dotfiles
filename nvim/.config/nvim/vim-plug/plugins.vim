@@ -52,7 +52,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'hrsh7th/nvim-cmp' " -- Autocompletion core engine plugin
     Plug 'hrsh7th/cmp-nvim-lsp' " -- LSP source for nvim-cmp
     Plug 'hrsh7th/cmp-buffer' " -- buffer completion
-    Plug 'hrsh7th/cmp-path' " -- path completion
+    " Plug 'hrsh7th/cmp-path' " -- path completion
     Plug 'saadparwaiz1/cmp_luasnip' " -- snippet compeletion
 
     "snippets

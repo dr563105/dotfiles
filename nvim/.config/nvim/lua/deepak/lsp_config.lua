@@ -1,6 +1,7 @@
 local nvim_lsp = require('lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
-require("luasnip/loaders/from_vscode").lazy_load() -- loads friendly snippets. See[here](https://github.com/L3MON4D3/LuaSnip/blob/72323c10fe2d91695f7593e572496ab9f004afee/Examples/snippets.lua#L263-L274)
+require("luasnip/loaders/from_vscode").lazy_load() 
+-- loads friendly snippets. See[here](https://github.com/L3MON4D3/LuaSnip/blob/72323c10fe2d91695f7593e572496ab9f004afee/Examples/snippets.lua#L263-L274)
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
@@ -131,6 +132,8 @@ cmp.setup{
         -- nvim_lua = "[NVIM_LUA]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
+        luasnip = "[LuaSnip]",
+        latex_symbols = "[LaTeX]",
         -- path = "[Path]",
       })[entry.source.name]
       return vim_item
@@ -139,7 +142,7 @@ cmp.setup{
   sources = {
     { name = 'nvim_lsp'},
     { name = 'luasnip'},
-    { name = 'buffers'},
+    { name = 'buffer'},
   },
     experimental = {
         native_menu = false,
