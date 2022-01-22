@@ -51,11 +51,10 @@ export OPENSSL_ROOT_DIR=/opt/homebrew/opt/openssl@1.1
 alias suzsh='subl ~/.zshrc'
 alias vzsh='vim ~/.zshrc'
 alias zsh='source ~/.zshrc'
-alias ll="ls -la"
-alias lr="ls -lRFh"
-alias lt="ls -ltFh"
-alias l="ls -lFh"
-alias lS='ls -1FSsh'
+alias ll="ls -lahF" # lists in long form including hidden files and human readable size format while appending entries.
+alias lt="ls -latrh" # sorted list w.r.t time reverse and size in human readable format with appended entries.
+alias l="ls -lah" # back up to ll to allow for typo.
+alias lS='ls -lahFSr' # prints list in the reverse order of size in long form including hidden files. 
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 
@@ -119,7 +118,8 @@ export PATH=/usr/local/texlive/2020/bin/x86_64-darwin:$PATH
 export MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH
 export INFOPATH=usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH
 
-#PROMPT='%2~ %# ' 
+PROMPT='%{$fg[yellow]%}[%*] '$PROMPT 
+# PROMPT='%2~ %# ' 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
