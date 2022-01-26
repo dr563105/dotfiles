@@ -73,7 +73,7 @@ sudo apt install tree #for ubuntu
 Easiest way to preview and download themes is `kitty +kitten themes`.
 
 
-### VS CODE 
+## VS CODE 
 **Install**
 `brew install --cask visual-studio-code`
 
@@ -82,4 +82,76 @@ use this link to uninstall the app in vs code -- https://stackoverflow.com/a/426
 
 `brew uninstall visual-studio-code`
 
+## Conda
 
+### Install Conda
+
+**Miniconda3** [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
+Also [the archive](https://repo.anaconda.com/miniconda/). Look for Miniconda3-latest.
+
+```shell
+wget -q https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+```shell
+wget -q https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
+bash Miniconda3-latest-MacOSX-arm64.sh
+```
+
+**Miniforge3**[https://github.com/conda-forge/miniforge#miniforge3](https://github.com/conda-forge/miniforge#miniforge3)
+
+```shell
+wget -q https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+bash Miniforge3-Linux-x86_64.sh
+```
+or 
+
+```shell
+wget -q https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
+bash Miniforge3-MacOSX-arm64.sh
+```
+
+**Install Mamba package manager**
+
+`conda install -n base mamba -c conda-forge` or `conda install -n base mamba -c fastchan`
+
+After installing Mamba, every command starting with `conda` can be replaced with `mamba`.
+
+### Create an environment
+
+`conda create -n <env-name>`
+
+`conda env create -f environment.yml` # With an environment.yml file 
+
+`conda create --name myclone --clone myenv` # Clone an existing environment 
+
+`conda list --explicit > spec-file.txt` # Save installed packages for later use in same OS.
+
+`conda create --name myenv --file spec-file.txt` # create an identical clone env with packages.
+
+`conda install --name myenv --file spec-file.txt` # install packages in an existing env.
+
+### Delete an environment
+
+`conda info --envs`  or `conda env list` # check environments available
+
+`conda env remove -n <env-name>` # To delete
+
+### Sharing an environment
+
+1. Activate the environment that is to be shared.
+
+2. `conda env export > environment.yml` export to a `yml` file.
+
+### Update packages
+
+`conda update -n <env-name> <package name> -c <channel-name>` # updates only mentioned package
+
+or 
+
+`conda update -n <env-name> --all -c <channel-name>` # updates all installed packages
+
+### Clear cache
+
+`conda clean --all` # Remove index cache, lock files, unused cache packages, and tarballs.
