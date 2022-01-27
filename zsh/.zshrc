@@ -118,13 +118,27 @@ export PATH=/usr/local/texlive/2020/bin/x86_64-darwin:$PATH
 export MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH
 export INFOPATH=usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH
 
-PROMPT='%{$fg[yellow]%}[%*] '$PROMPT 
+# Prompting
+# Check out this [link](https://gist.github.com/zulhfreelancer/9c410cad5efa9c5f7c74cd0849765865) and
+# [this] (https://bneijt.nl/blog/add-a-timestamp-to-your-bash-prompt/) for more options.
+
+# RPROMPT='%{$fg[yellow]%}[%*] ' # displays time(24h format) on the right side(RPROMPT).
+# RPROMPT='[%D{%H:%M:%S}] ' # Dispalys Date in the 24h format.
+
+PROMPT='%{$fg[yellow]%}[%*] '$PROMPT # Displays time in 24h on the left side. Refer
+# [this](https://stackoverflow.com/a/69164331).
 # PROMPT='%2~ %# ' 
+
+#refresh terminal prompt every 60 seconds.
+TMOUT=60
+TRAPALRM() {
+    zle reset-prompt
+}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/dross/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+if [ $? -eq 0 ]; then eval "$__conda_setup"
 else
     if [ -f "/Users/dross/miniforge3/etc/profile.d/conda.sh" ]; then
         . "/Users/dross/miniforge3/etc/profile.d/conda.sh"
