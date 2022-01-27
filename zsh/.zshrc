@@ -72,10 +72,12 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 # git
+alias add='git add'
 alias addup='git add -u'
 alias addall='git add .'
 alias branch='git branch'
 alias checkout='git checkout'
+alias bcheckout='git checkout -b'
 alias clone='git clone'
 alias commit='git commit -m'
 alias fetch='git fetch'
