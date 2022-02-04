@@ -18,7 +18,7 @@
     "editor.cursorBlinking": "smooth",
     //For linux
     //"editor.fontFamily": "Fira Code Retina",
-    "editor.fontFamily": "FiraCode-Retina",
+    "editor.fontFamily": "FiraCodeNerdFontCompleteM-Retina",
     "editor.fontLigatures": true,
     "editor.wordWrap": "on",
     "editor.minimap.enabled": false,
