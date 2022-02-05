@@ -49,7 +49,7 @@ function get_git_prompt {
 PROMPT+='%{$fg[yellow]%}[%*]'
 PROMPT+='%F{148}[%3~]%{$reset_color%}'
 PROMPT+=' %(?:%{$yellow1%}➜ :%{$orangered1%}➜ )'
-RPROMPT+='$(get_git_prompt)'
+RPROMPT+='%{$reset_color%}$(get_git_prompt)'
 RPROMPT+=' $(git_prompt_short_sha)'
 
 setopt prompt_subst

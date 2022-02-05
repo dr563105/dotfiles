@@ -15,10 +15,28 @@ formula_list=(
 )
 
 cask_list=(
-    rectangle
-    visual-studio-code
-    spotify
+    adobe-acrobat-reader
+    audacity
+    authy
+    brave-browser
+    filebot
+    firefox
+    google-chrome
+    keepassxc
     kid3
+    mullvadvpn
+    protonvpn
+    rectangle
+    scroll-reverser
+    skim
+    skype
+    spotify
+    sublime-text
+    tableplus
+    the-unarchiver
+    visual-studio-code
+    vlc
+    zoom
 )
 for i in ${formula_list[@]}; do
     brew install "$i"
