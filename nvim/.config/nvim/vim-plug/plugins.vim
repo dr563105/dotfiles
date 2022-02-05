@@ -12,7 +12,8 @@ call plug#begin('~/.config/nvim/plugged')
    
     " Auto pairs for '(' '[' '{'
     " Plug 'jiangmiao/auto-pairs'
-    Plug 'LunarWatcher/auto-pairs' "need to update to nvim
+    Plug 'LunarWatcher/auto-pairs' 
+    " need to update to nvim
     
     "NVIM surround
     Plug 'blackcauldron7/surround.nvim'
