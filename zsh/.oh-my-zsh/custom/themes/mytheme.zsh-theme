@@ -2,10 +2,9 @@
 # Author: Deepak Ramani
 
 unset PROMPT RPROMPT
-
 # https://www.ditig.com/256-colors-cheat-sheet
 local indianred=%F{131}
-local red3=%F{124}
+local orangered1=%F{202}
 local palegreen3=%F{77}
 local darkgoldenrod=%F{136}
 local darkorange3=%F{166}
@@ -15,24 +14,6 @@ local slateblue1=%F{99}
 local yellow1=%F{226}
 # local yellow_bold=%F{11} # yellow and green colors don't appear for seashell custom kitty theme.
 # local green_bold=%F{10}
-
-# Machine name.
-
-#     if [ -f ~/.box-name ]; then
-#         cat ~/.box-name
-#     else
-#         echo $HOST
-#     fi
-# }
-
-# User name.
-# function get_usr_name {
-#     local name="%n"
-#     if [[ "$USER" == 'root' ]]; then
-#         name="%{$highlight_bg%}%{$white_bold%}$name%{$reset_color%}"
-#     fi
-#     echo $name
-# }
 
 # Git info.
 ZSH_THEME_GIT_PROMPT_PREFIX="git:"
@@ -67,15 +48,35 @@ function get_git_prompt {
 
 PROMPT+='%{$fg[yellow]%}[%*]'
 PROMPT+='%F{148}[%3~]%{$reset_color%}'
-PROMPT+='$(get_git_prompt)'
-# PROMPT+=' $(git_prompt_short_sha)'
-PROMPT+=' %(?:%{$yellow1%}➜ :%{$red3%}➜ )'
+PROMPT+=' %(?:%{$yellow1%}➜ :%{$orangered1%}➜ )'
+RPROMPT+='$(get_git_prompt)'
+RPROMPT+=' $(git_prompt_short_sha)'
+
+
+setopt prompt_subst
+
+# Machine name.
+
+#     if [ -f ~/.box-name ]; then
+#         cat ~/.box-name
+#     else
+#         echo $HOST
+#     fi
+# }
+
+# User name.
+# function get_usr_name {
+#     local name="%n"
+#     if [[ "$USER" == 'root' ]]; then
+#         name="%{$highlight_bg%}%{$white_bold%}$name%{$reset_color%}"
+#     fi
+#     echo $name
+# }
+
 
 # %{$blue%}@\
 # %{$cyan_bold%}$(get_box_name): \
 # %{$green_bold%}$(get_usr_name)\
-
-setopt prompt_subst
 
 # Check out this [link](https://gist.github.com/zulhfreelancer/9c410cad5efa9c5f7c74cd0849765865) and
 # [this] (https://bneijt.nl/blog/add-a-timestamp-to-your-bash-prompt/) for more options.

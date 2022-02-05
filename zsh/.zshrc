@@ -36,6 +36,7 @@ if [ -f ~/.aliases.zsh ]; then
 fi
 
 # ---- path variables -----
+export PATH="/opt/homebrew/sbin:$PATH"
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/bin/git:$PATH
 export PATH=/usr/local/texlive/2020/bin/x86_64-darwin:$PATH
