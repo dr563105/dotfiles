@@ -75,16 +75,24 @@ lua require('deepak.treesitter')
 lua require('deepak.gitsigns')
 lua require('deepak.comment')
 lua require('deepak.surround')
+
 "settings for vimtex
 let g:tex_flavor='latex'
 set conceallevel=1
 let g:tex_conceal='abdgms'
 let g:vimtex_compiler_latexmk = {'build_dir' : 'build'}
 
-let g:python3_host_prog = '/opt/homebrew/Caskroom/miniforge/base/envs/streamlit/bin/python'
-"let g:vimtex_viewer_zathura_options = '-x \"nvr --remote +%{line} %{input}"'
-"let g:vimtex_compiler_progname = 'nvr'
-"let g:vimtex_view_method='zathura'
+" ------ For Mac OS -------"
+let g:vimtex_view_method = 'skim'
+let g:vimtex_view_skim_activate = 1
+let g:vimtex_view_skim_sync = 1
+" -------------------------"
+"
+"
+" " let g:python3_host_prog = '/opt/homebrew/Caskroom/miniforge/base/envs/fornvim/bin/python'
+" "let g:vimtex_viewer_zathura_options = '-x \"nvr --remote +%{line} %{input}"'
+" "let g:vimtex_compiler_progname = 'nvr'
+" "let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_ignore_filters = [
   \'Underfull \\hbox (badness [0-9]*) in paragraph at lines',
   \'Overfull \\hbox ([0-9]*.[0-9]*pt too wide) in paragraph at lines',
