@@ -16,7 +16,19 @@ extension_list=(
     vscodevim.vim
     wesbos.theme-cobalt2
 )
+cpp_extension=(
+    cschlosser.doxdocgen
+    jeff-hykin.better-cpp-syntax
+    ms-vscode.cmake-tools
+    ms-vscode.cpptools
+    ms-vscode.cpptools-extension-pack
+    twxs.cmake
+)
 
 for i in ${extension_list[@]}; do
+    code --install-extension "$i"
+done
+
+for i in $(cpp_extension[@])}; do 
     code --install-extension "$i"
 done

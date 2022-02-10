@@ -67,5 +67,10 @@
         }
     ],
     "editor.lineNumbers": "relative",
-    "terminal.integrated.inheritEnv": false
+
+    "terminal.integrated.inheritEnv": false,
+
+    // Intellisense
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.parameterHints.enabled": true
 }

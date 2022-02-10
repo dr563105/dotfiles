@@ -60,6 +60,8 @@ GNU Stow is installed through homebrew `brew install stow`
 
 Helpful resource - https://www.jakewiesler.com/blog/managing-dotfiles
 
+Stow ignore - https://unix.stackexchange.com/questions/121910/gnu-stow-how-to-stow-only-selected-files-folders
+
 ## Tree command for directory tree
 A pretty awesome tool to display a directory's tree structure. See [here](http://mama.indstate.edu/users/ice/tree/index.html)  
 
@@ -81,6 +83,10 @@ Easiest way to preview and download themes is `kitty +kitten themes`.
 use this link to uninstall the app in vs code -- https://stackoverflow.com/a/42603699, https://stackoverflow.com/a/53839847
 
 `brew uninstall visual-studio-code`
+### list extensions
+`code --list-extensions`
+
+`code --list-extensions >> ~/extension.txt`
 
 ## Conda
 
