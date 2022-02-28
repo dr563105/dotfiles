@@ -17,8 +17,15 @@ All plugins necessary go inside a text file and that file is bundled to a shell 
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 echo -n 'source ~/.zsh_plugins.sh' >> ~/.zshrc
 ```
-
+##homebrew
+To know the dependencies of an installed package 
+```
+brew deps --tree --installed <packagename> # eg. brew deps --tree --installed ruby
+```
 ## Neovim
+
+**Important**: Neovim version must be greater than 0.6.0 for most plugins to work. Latest
+development version is preferred. 
 
 In Mac, neovim is installed via homebrew. [Link](https://github.com/neovim/neovim/wiki/Installing-Neovim#homebrew-on-macos-or-linux).
 
@@ -40,6 +47,25 @@ brew upgrade neovim
 ```
 
 For Ubuntu, use this [link](https://github.com/neovim/neovim/wiki/Installing-Neovim#ubuntu).
+```bash
+sudo apt remove neovim
+sudo apt autoclean && sudo apt autoremove  # unistall older version of neovim and remove dependencies
+```
+**Note**: Removes also xclip, neovim-runtime along with it. 
+
+### fzf, ripgrep, xclip,neovim 
+```bash
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt update
+sudo apt install neovim fzf ripgrep xclip
+```
+### tree-sitter
+```bash
+brew install tree-sitter # Mac
+```
+**Ubuntu**
+Download the latest from [here](https://github.com/tree-sitter/tree-sitter/releases) and
+place the executable(make it as one) inside `~/.local/bin/`.
 
 ### vim-plug
 [link](https://github.com/junegunn/vim-plug).
@@ -50,13 +76,26 @@ To install
 sh -c curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
-
+Auto install check
+```bash
+if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
+    silent !curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+```
 ### Dependent packages for nvim
 Plugin/packages/language servers such as `pyright`, `ripgrep`, `fd` are installed using `brew install ...`
+
+### Troubleshooting
+
+Mar 1, 2022 - `telescope-fzf-native.nvim` is throwing error at fresh install. Possibly due to `make` not compiling. 
+Goto the installed dir path and execute `make` or reinstall fzf-native. 
 
 ## GNU Stow
 
 GNU Stow is installed through homebrew `brew install stow`
+
+`sudo apt install stow` for Ubuntu. 
 
 Helpful resource - https://www.jakewiesler.com/blog/managing-dotfiles
 
