@@ -7,7 +7,7 @@ if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
 endif
 
 " --- Plugins
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.config/nvim/autoload/plugged')
    
     " Auto pairs for '(' '[' '{'
     " Plug 'jiangmiao/auto-pairs'
@@ -41,7 +41,7 @@ call plug#begin('~/.config/nvim/plugged')
     "" Install telescope
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
     " General
     Plug 'kyazdani42/nvim-web-devicons'                " Devicons
     Plug 'kyazdani42/nvim-tree.lua'
