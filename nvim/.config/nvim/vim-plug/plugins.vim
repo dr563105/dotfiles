@@ -1,10 +1,9 @@
 "All plugin related go here
 
 " --- Auto install vim-plug if absent
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
+    silent !curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " --- Plugins
@@ -16,7 +15,8 @@ call plug#begin('~/.config/nvim/plugged')
     " need to update to nvim
     
     "NVIM surround
-    Plug 'blackcauldron7/surround.nvim'
+    Plug 'tpope/vim-surround'
+    " Plug 'blackcauldron7/surround.nvim'
 
     "Vim Latex plugin
     Plug 'lervag/vimtex'
@@ -53,7 +53,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'hrsh7th/nvim-cmp' " -- Autocompletion core engine plugin
     Plug 'hrsh7th/cmp-nvim-lsp' " -- LSP source for nvim-cmp
     Plug 'hrsh7th/cmp-buffer' " -- buffer completion
-    " Plug 'hrsh7th/cmp-path' " -- path completion
+    Plug 'hrsh7th/cmp-path' " -- path completion
     Plug 'saadparwaiz1/cmp_luasnip' " -- snippet compeletion
 
     "snippets
@@ -74,7 +74,7 @@ lua require('deepak.nvim-tree')
 lua require('deepak.treesitter')
 lua require('deepak.gitsigns')
 lua require('deepak.comment')
-lua require('deepak.surround')
+" lua require('deepak.surround')
 
 "settings for vimtex
 let g:tex_flavor='latex'
