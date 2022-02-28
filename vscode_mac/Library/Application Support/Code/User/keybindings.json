@@ -6,13 +6,8 @@
     { "key": "cmd+4", "command": "workbench.action.openEditorAtIndex4" },
 
     { "key": "ctrl+tab", "command": "workbench.action.nextEditor" },
-    { "key": "ctrl+shift+tab", "command": "workbench.action.previousEditor" },
+    { "key": "ctrl+shift+tab", "command": "workbench.action.previousEditor" }
 
     // { "key": "g shift+d", "command": "editor.action.goToTypeDefinition" },
     // { "key": "g+r", "command": "editor.action.goToReferences" }
-    {
-        "key": "ctrl+space",
-        "command": "editor.action.triggerSuggest",
-        "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
-    }
 ]

@@ -21,7 +21,6 @@
     "editor.fontFamily": "FiraCodeNerdFontCompleteM-Retina",
     "editor.fontLigatures": true,
     "editor.wordWrap": "on",
-    "editor.minimap.enabled": false,
     "editor.fontSize": 16,
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
@@ -72,5 +71,13 @@
 
     // Intellisense
     "editor.suggestSelection": "recentlyUsed",
-    "editor.parameterHints.enabled": true
+    "editor.parameterHints.enabled": true,
+    "python.defaultInterpreterPath": "",
+    "window.zoomLevel": -1
+
+    //Jupyter plots barely visible in dark theme background. https://stackoverflow.com/a/66601351/13539744
+    // "jupyter.runStartupCommands": [
+    //     "import matplotlib.pyplot as plt",
+    //     "plt.style.use('ggplot')"
+    // ]
 }
