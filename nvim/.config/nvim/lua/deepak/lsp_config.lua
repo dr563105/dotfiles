@@ -134,7 +134,7 @@ cmp.setup{
         buffer = "[Buffer]",
         luasnip = "[LuaSnip]",
         latex_symbols = "[LaTeX]",
-        -- path = "[Path]",
+        path = "[Path]",
       })[entry.source.name]
       return vim_item
     end,
@@ -143,6 +143,7 @@ cmp.setup{
     { name = 'nvim_lsp'},
     { name = 'luasnip'},
     { name = 'buffer'},
+    { name = 'path' }
   },
     experimental = {
         native_menu = false,
