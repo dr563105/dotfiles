@@ -77,8 +77,8 @@ function! HasPaste()
 endfunction
 
 " --- status bar colors
-au InsertEnter * hi statusline guifg=black guibg=#d7afff ctermfg=black ctermbg=magenta
-au InsertLeave * hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
+" au InsertEnter * hi statusline guifg=black guibg=#d7afff ctermfg=black ctermbg=magenta
+" au InsertLeave * hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
 " hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
 
 " " --- Statusline customisation
