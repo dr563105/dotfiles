@@ -1,13 +1,19 @@
 "All plugin related go here
 
-" --- Auto install vim-plug if absent
+"========= Auto install vim-plug if absent ========================="
 if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
     echom "Downloading junegunn/vim-plug to manage plugins..."
-    silent !curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs 
+                \https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim   
 endif
 
-" --- Plugins
+" Run PlugInstall if there are missing plugins, 
+" https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation-of-missing-plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) 
+            \| PlugInstall --sync | q 
+            \| source $MYVIMRC | endif
+
+"====================== Plugins ====================================="
 call plug#begin('~/.config/nvim/autoload/plugged')
    
     " Auto pairs for '(' '[' '{'
@@ -43,11 +49,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
-    " General
-    Plug 'kyazdani42/nvim-web-devicons'                " Devicons
+    
+    " Devicons
+    Plug 'kyazdani42/nvim-web-devicons'                
+    " Tree file browser
     Plug 'kyazdani42/nvim-tree.lua'
-    Plug 'nvim-lualine/lualine.nvim'                   " Status line
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+    "Status line
+    Plug 'nvim-lualine/lualine.nvim'    
+    " Syntax highlighting. Recommended updating the parsers on update
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
     " LSP
     Plug 'neovim/nvim-lspconfig'
     "Autocomplete   
@@ -64,16 +74,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 call plug#end()
 
+"=================================================================="
+
 " let g:gruvbox_contrast_dark = 'hard'
 " https://superuser.com/a/552333, http://vimdoc.sourceforge.net/htmldoc/eval.html#exists()
-" if !exists(':NightfoxLoad')
-"     echo "setting nightfox colorscheme..."
 colorscheme nightfox "OceanicNext "afterglow
-" else
-"     echo "setting colorscheme to afterglow"
-"     colorscheme afterglow
-" endif
 
+"==================================================================="
 " --- Require plugin configs specially written for nvim. Format - namespace.dir-name.plugin-name
 lua require('deepak.telescope')
 lua require('deepak.lualine')
@@ -84,6 +91,7 @@ lua require('deepak.gitsigns')
 lua require('deepak.comment')
 " lua require('deepak.surround')
 
+"==================================================================="
 "settings for vimtex
 let g:tex_flavor='latex'
 set conceallevel=1
@@ -102,7 +110,6 @@ else
     let g:vimtex_view_method='zathura'
 endif
 
-
 "
 " " let g:python3_host_prog = '/opt/homebrew/Caskroom/miniforge/base/envs/fornvim/bin/python'
 " "let g:vimtex_viewer_zathura_options = '-x \"nvr --remote +%{line} %{input}"'
@@ -114,3 +121,4 @@ let g:vimtex_quickfix_ignore_filters = [
   \'Package hyperref Warning: Token not allowed in a PDF string',
   \'Package typearea Warning: Bad type area settings!',
   \]
+"===================================================================="
