@@ -12,7 +12,11 @@ set termguicolors
 set background=dark
 
 set pumheight=10                        " Makes popup menu smaller
-set undodir=~/.config/nvim/undodir
+
+if has('persistent_undo')
+    set undodir=~/.config/nvim/undodir       " Set directory for undo files.
+    set undofile                    " Automatically save undo history.
+endif
 set cmdheight=2                         " More space for displaying messages
 set textwidth=90
 set mouse=a                             " Enable your mouse
@@ -41,6 +45,9 @@ set hlsearch incsearch                  " Enable incremental search
 set ignorecase         
 set smartcase
 set ignorecase " Ignore case when searching
+
+" Don't redraw while executing macros (good performance config)
+" set lazyredraw
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
