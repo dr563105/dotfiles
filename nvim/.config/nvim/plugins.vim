@@ -2,8 +2,9 @@
 
 " --- Auto install vim-plug if absent
 if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
+    echom "Downloading junegunn/vim-plug to manage plugins..."
     silent !curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    autocmd VimEnter * PlugInstall "--sync | source $MYVIMRC
 endif
 
 " --- Plugins
@@ -64,7 +65,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 call plug#end()
 
 " let g:gruvbox_contrast_dark = 'hard'
+" https://superuser.com/a/552333, http://vimdoc.sourceforge.net/htmldoc/eval.html#exists()
+" if !exists(':NightfoxLoad')
+"     echo "setting nightfox colorscheme..."
 colorscheme nightfox "OceanicNext "afterglow
+" else
+"     echo "setting colorscheme to afterglow"
+"     colorscheme afterglow
+" endif
 
 " --- Require plugin configs specially written for nvim. Format - namespace.dir-name.plugin-name
 lua require('deepak.telescope')
@@ -82,17 +90,24 @@ set conceallevel=1
 let g:tex_conceal='abdgms'
 let g:vimtex_compiler_latexmk = {'build_dir' : 'build'}
 
-" ------ For Mac OS -------"
-let g:vimtex_view_method = 'skim'
-let g:vimtex_view_skim_activate = 1
-let g:vimtex_view_skim_sync = 1
-" -------------------------"
-"
+if has('macunix')
+    echom "setting Skim as vimtex pdf viewer"
+    " ------ For Mac OS -------"
+    let g:vimtex_view_method = 'skim'
+    let g:vimtex_view_skim_activate = 1
+    let g:vimtex_view_skim_sync = 1
+    " -------------------------"
+else
+    echom "setting Zathura as vimtex pdf viewer"
+    let g:vimtex_view_method='zathura'
+endif
+
+
 "
 " " let g:python3_host_prog = '/opt/homebrew/Caskroom/miniforge/base/envs/fornvim/bin/python'
 " "let g:vimtex_viewer_zathura_options = '-x \"nvr --remote +%{line} %{input}"'
 " "let g:vimtex_compiler_progname = 'nvr'
-" "let g:vimtex_view_method='zathura'
+" "
 let g:vimtex_quickfix_ignore_filters = [
   \'Underfull \\hbox (badness [0-9]*) in paragraph at lines',
   \'Overfull \\hbox ([0-9]*.[0-9]*pt too wide) in paragraph at lines',
