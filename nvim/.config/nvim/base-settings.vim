@@ -27,7 +27,7 @@ set shiftwidth=4                        " Change the number of space characters 
 set expandtab                           " Converts tabs to spaces
 set smartindent                         " Makes indenting smart
 
-set laststatus=2                        " Always display the status line
+set laststatus=4                        " Always display the status line
 set number                              " Line numbers
 set relativenumber 						" Relative line numbers for easy navigation
 "set cursorline                          " Enable highlighting of the current line
@@ -53,13 +53,6 @@ set ignorecase " Ignore case when searching
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType tex,latex,markdown setlocal spell spelllang=en_gb
 
-highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
-
-
-set statusline=\ %{HasPaste()}%f%m%r%h\ %w\ Line:\ %l/%L[\%p%%]\ \ Column:\ %c
-"\ CWD:\ %r%{getcwd()}%h\ \ \
-
-au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 " au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " Delete trailing white space on save, useful for some filetypes ;)
@@ -76,12 +69,14 @@ if has("autocmd")
 endif
 
 " --- Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
-endfunction
+" function! HasPaste()
+"     if &paste
+"         return 'PASTE MODE  '
+"     endif
+"     return ''
+" endfunction
+
+" highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 
 " --- status bar colors
 " au InsertEnter * hi statusline guifg=black guibg=#d7afff ctermfg=black ctermbg=magenta
@@ -89,6 +84,8 @@ endfunction
 " hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
 
 " " --- Statusline customisation
+" set statusline=\ %{HasPaste()}%f%m%r%h\ %w\ Line:\ %l/%L[\%p%%]\ \ Column:\ %c
+"\ CWD:\ %r%{getcwd()}%h\ \ \
 " set statusline=
 " set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 " set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
