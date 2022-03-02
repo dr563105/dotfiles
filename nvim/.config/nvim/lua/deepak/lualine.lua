@@ -11,7 +11,7 @@ require('lualine').setup {
         lualine_b = {{'branch'}, {'diff',colored=false}},
         lualine_c = {'filename',{'diagnostics', sources={'nvim_diagnostic'}}},
         lualine_x = {"os.date('%b %d,%Y')"}, --brings in date
-        lualine_y = {'ln:','%02l/%L'},
+        lualine_y = {'%-2v ln: %02l/%L'},
         lualine_z = {'progress'}
     },
     inactive_sections = {
