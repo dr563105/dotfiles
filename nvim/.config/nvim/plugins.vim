@@ -71,6 +71,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'L3MON4D3/LuaSnip'
     Plug 'rafamadriz/friendly-snippets' " --more snippets
     " Plug 'onsails/lspkind-nvim' " -- vscode-like pictograms 
+    
+    "Profiling
+    Plug 'lewis6991/impatient.nvim'
 
 call plug#end()
 
@@ -89,6 +92,7 @@ lua require('deepak.nvim-tree')
 lua require('deepak.treesitter')
 lua require('deepak.gitsigns')
 lua require('deepak.comment')
+lua require('deepak.impatient')
 " lua require('deepak.surround')
 
 "==================================================================="
