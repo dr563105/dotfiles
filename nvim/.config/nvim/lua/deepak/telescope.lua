@@ -57,11 +57,28 @@ require("telescope").setup{
   }
 }
 
-vim.api.nvim_set_keymap('n', '<Leader>p', ':lua require\'deepak.telescope\'.project_files()<Cr>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<Leader>df', ':lua require\'deepak.telescope\'.search_dotfiles()<Cr>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<Leader>ff', ':lua require\'telescope.builtin\'.find_files()<Cr>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<Leader>fg', ':lua require\'telescope.builtin\'.live_grep()<Cr>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<Leader>fb', ':lua require\'telescope.builtin\'.buffers()<Cr>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<Leader>fh', ':lua require\'telescope.builtin\'.help_tags()<Cr>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>p', 
+    ':lua require\'deepak.telescope\'.project_files()<Cr>', 
+        {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<Leader>df', 
+    ':lua require\'deepak.telescope\'.search_dotfiles()<Cr>', 
+        {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<Leader>ff', 
+    ':lua require\'telescope.builtin\'.find_files()<Cr>', 
+        {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<Leader>fg', 
+    ':lua require\'telescope.builtin\'.live_grep()<Cr>', 
+        {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<Leader>fb',
+    ':lua require\'telescope.builtin\'.buffers()<Cr>', 
+        {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap('n', '<Leader>fh', 
+    ':lua require\'telescope.builtin\'.help_tags()<Cr>', 
+        {noremap = true, silent = true})
 
 return M
