@@ -101,6 +101,14 @@ let g:tex_flavor='latex'
 set conceallevel=1
 let g:tex_conceal='abdgms'
 let g:vimtex_compiler_latexmk = {'build_dir' : 'build'}
+" let g:vimtex_compiler_latexmk_engines = {'xelatex': '-xelatex'}
+" let g:vimtex_compiler_latexrun_engines ={'xelatex':'xelatex'}
+
+" the next 2 commands supresses quickfix window not to 
+"pop up when there are only warnings and no error. Also
+" not make it active window.
+" let g:vimtex_quickfix_mode = 2 
+let g:vimtex_quickfix_open_on_warning = 0
 
 if has('macunix')
     echom "setting Skim as vimtex pdf viewer"

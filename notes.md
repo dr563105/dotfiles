@@ -84,7 +84,7 @@ if empty(glob('$HOME/.config/nvim/autoload/plug.vim'))
 endif
 ```
 ### Dependent packages for nvim
-Plugin/packages/language servers such as `pyright`, `ripgrep`, `fd` are installed using `brew install ...`
+Plugin/packages/language servers such as `pyright`, `ripgrep`, `fd`, `texlab` are installed using `brew install ...`
 
 ### Troubleshooting
 

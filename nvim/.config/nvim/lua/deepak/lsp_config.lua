@@ -133,7 +133,7 @@ cmp.setup{
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         luasnip = "[LuaSnip]",
-        latex_symbols = "[LaTeX]",
+        -- latex_symbols = "[LaTeX]",
         path = "[Path]",
       })[entry.source.name]
       return vim_item
@@ -151,7 +151,7 @@ cmp.setup{
     }
 }
 
-local servers = {'pyright'}
+local servers = {'pyright','texlab'}
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
 		on_attach = on_attach,
