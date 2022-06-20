@@ -73,7 +73,8 @@
     "editor.suggestSelection": "recentlyUsed",
     "editor.parameterHints.enabled": true,
     "python.defaultInterpreterPath": "",
-    "window.zoomLevel": -1
+    "terminal.external.linuxExec": "xterm-256color",
+    "remote.SSH.connectTimeout": 60
 
     //Jupyter plots barely visible in dark theme background. https://stackoverflow.com/a/66601351/13539744
     // "jupyter.runStartupCommands": [

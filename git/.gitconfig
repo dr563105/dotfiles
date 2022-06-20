@@ -8,3 +8,5 @@
 	email = dr563105@gmail.com
 [core]
 	excludesfile = /Users/dross/.gitignore_global
+[init]
+	defaultBranch = main

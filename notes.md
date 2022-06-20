@@ -167,13 +167,13 @@ After installing Mamba, every command starting with `conda` can be replaced with
 
 `conda create -n <env-name>`
 
-`conda env create -f environment.yml` # With an environment.yml file 
+`conda env create -n ENVNAME --file ENV.yml` # import with an environment.yml file 
 
 `conda create --name myclone --clone myenv` # Clone an existing environment 
 
 `conda list --explicit > spec-file.txt` # Save installed packages for later use in same OS.
 
-`conda create --name myenv --file spec-file.txt` # create an identical clone env with packages.
+`conda create --name myenv --file spec-file.txt` # Import env from a file.txt
 
 `conda install --name myenv --file spec-file.txt` # install packages in an existing env.
 
@@ -187,7 +187,7 @@ After installing Mamba, every command starting with `conda` can be replaced with
 
 1. Activate the environment that is to be shared.
 
-2. `conda env export > environment.yml` export to a `yml` file.
+2. `conda env export ENVNAME>ENV.yml` export to a `yml` file.
 
 ### Update packages
 
@@ -200,3 +200,7 @@ or
 ### Clear cache
 
 `conda clean --all` # Remove index cache, lock files, unused cache packages, and tarballs.
+
+## Cheatsheet
+
+https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf

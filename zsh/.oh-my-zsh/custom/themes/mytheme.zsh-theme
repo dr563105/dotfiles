@@ -46,11 +46,20 @@ function get_git_prompt {
     fi
 }
 
+
+function tf_prompt_info() {
+  # dont show 'default' workspace in home dir
+  [[ "$PWD" != ~ ]] || return
+  # check if in terraform dir and file exists
+  [[ -d .terraform && -r .terraform/environment ]] || return
+}
+
 PROMPT+='%{$fg[yellow]%}[%*]'
 PROMPT+='%F{148}[%3~]%{$reset_color%}'
 PROMPT+=' %(?:%{$yellow1%}➜ :%{$orangered1%}➜ )'
 RPROMPT+='%{$reset_color%}$(get_git_prompt)'
 RPROMPT+=' $(git_prompt_short_sha)'
+RPROMPT+=' $(tf_prompt_info)'
 
 setopt prompt_subst
 

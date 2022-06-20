@@ -35,6 +35,10 @@ if [ -f ~/.aliases.zsh ]; then
     source $HOME/.aliases.zsh
 fi
 
+# autoload -U +X bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
 # ---- path variables -----
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH=/opt/homebrew/bin:$PATH
