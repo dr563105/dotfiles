@@ -15,6 +15,14 @@ extension_list=(
     sainnhe.gruvbox-material
     vscodevim.vim
     wesbos.theme-cobalt2
+    hashicorp.terraform
+    ms-kubernetes-tools.vscode-kubernetes-tools
+    ms-toolsai.jupyter-keymap
+    ms-vscode-remote.remote-containers
+    ms-vscode-remote.remote-ssh
+    ms-vscode-remote.remote-ssh-edit
+    rangav.vscode-thunder-client
+    redhat.vscode-yaml
 )
 cpp_extension=(
     cschlosser.doxdocgen

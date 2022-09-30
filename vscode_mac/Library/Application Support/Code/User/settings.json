@@ -74,7 +74,13 @@
     "editor.parameterHints.enabled": true,
     "python.defaultInterpreterPath": "",
     "terminal.external.linuxExec": "xterm-256color",
-    "remote.SSH.connectTimeout": 60
+    "remote.SSH.connectTimeout": 60,
+    "redhat.telemetry.enabled": false,
+    "python.formatting.provider": "black",
+    "vs-kubernetes": {
+        "vscode-kubernetes.helm-path.mac": "/Users/dross/.vs-kubernetes/tools/helm/darwin-arm64/helm",
+        "vscode-kubernetes.minikube-path.mac": "/Users/dross/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
+    }
 
     //Jupyter plots barely visible in dark theme background. https://stackoverflow.com/a/66601351/13539744
     // "jupyter.runStartupCommands": [

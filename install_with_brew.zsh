@@ -47,3 +47,5 @@ for i in ${cask_list[@]}; do
 done
 
 brew install --HEAD luajit neovim
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform

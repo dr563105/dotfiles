@@ -67,8 +67,7 @@ brew install tree-sitter # Mac
 Download the latest from [here](https://github.com/tree-sitter/tree-sitter/releases) and
 place the executable(make it as one) inside `~/.local/bin/`.
 
-### vim-plug
-[link](https://github.com/junegunn/vim-plug).
+### [vim-plug](https://github.com/junegunn/vim-plug)
 
 To install
 
@@ -144,7 +143,7 @@ wget -q https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
 bash Miniconda3-latest-MacOSX-arm64.sh
 ```
 
-**Miniforge3**[https://github.com/conda-forge/miniforge#miniforge3](https://github.com/conda-forge/miniforge#miniforge3)
+**Miniforge3** [https://github.com/conda-forge/miniforge#miniforge3](https://github.com/conda-forge/miniforge#miniforge3)
 
 ```shell
 wget -q https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
@@ -204,3 +203,32 @@ or
 ## Cheatsheet
 
 https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf
+
+## Terraform install 
+
+**Ubuntu** 
+
+```
+wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
+```
+
+**Mac** with Homebrew
+
+```
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
+```
+
+## Latex Installation
+
+- Goto this link — https://www.tug.org/texlive/acquire-netinstall.html, download uni-tar.gz file(ca. 5 mb).
+- Cd into the folder and run install-tl script. GUI doesn’t work well in dark mode. Switch to light mode. Follow instructions. 
+- Change install folder prefix to home directory to avoid permissions.
+- Click advanced, In “N.of collections”, click “customise” and choose necessary package and click install. Install will take about 30 mins.
+- There is also Mactex(https://www.tug.org/mactex/mactex-download.html) which contains all the packages. About 7gb big. Didn’t install. 
+
+export PATH=/usr/dross/texlive/2022/bin/universal-darwin:$PATH
+export MANPATH=/usr/dross/texlive/2022/texmf-dist/doc/man:$MANPATH
+export INFOPATH=usr/dross/texlive/2022/texmf-dist/doc/info:$INFOPATH

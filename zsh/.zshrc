@@ -26,6 +26,9 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment the following line to automatically update without prompting.
 DISABLE_UPDATE_PROMPT="true"
 
+#Prevent history from storing secrets, keys. Start with a space before the command to make history ignore it.
+setopt HIST_IGNORE_SPACE
+
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
 export OPENSSL_ROOT_DIR=/opt/homebrew/opt/openssl@1.1

@@ -34,11 +34,13 @@ alias clone='git clone'
 alias commit='git commit -m'
 alias fetch='git fetch'
 alias pull='git pull origin'
+alias prebase='git pull --rebase' #pull=fetch+merge
 alias push='git push -u origin'
 alias status='git status'
 alias tag='git tag'
 alias newtag='git tag -a'
 alias glog='git log --oneline --graph --decorate'
+alias glg="git log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
