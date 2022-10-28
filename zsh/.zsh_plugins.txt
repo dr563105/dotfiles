@@ -2,5 +2,6 @@ zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 zdharma-continuum/fast-syntax-highlighting
 robbyrussell/oh-my-zsh path:plugins/command-not-found
-rupa/z
+agkozak/zsh-z # only zsh shells
+#rupa/z
 # ael-code/zsh-colored-man-pages

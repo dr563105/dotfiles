@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 
 formula_list=(
-    antibody
+    antidote
     bat
     coreutils
     fd

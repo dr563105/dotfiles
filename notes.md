@@ -6,15 +6,15 @@ brew install zsh
 ```
 
 To use zsh ability to use plugins to bring in features and also be aware of performance,
-**antibody**, a framework is used to install plugins. 
+**antidote**, a framework is used to install plugins. 
 
 ```shell
-brew install antibody
+brew install antidote
 ```
 All plugins necessary go inside a text file and that file is bundled to a shell script. 
 
 ```bash
-antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+antidote bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 echo -n 'source ~/.zsh_plugins.sh' >> ~/.zshrc
 ```
 ##homebrew
@@ -125,6 +125,7 @@ use this link to uninstall the app in vs code -- https://stackoverflow.com/a/426
 `code --list-extensions`
 
 `code --list-extensions >> ~/extension.txt`
+
 
 ## Conda
 
