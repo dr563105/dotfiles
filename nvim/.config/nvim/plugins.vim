@@ -75,6 +75,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "Profiling
     Plug 'lewis6991/impatient.nvim'
 
+    "Quarto 
+    Plug 'quarto-dev/quarto-nvim'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'jmbuhr/otter.nvim'
 call plug#end()
 
 "=================================================================="
@@ -93,6 +97,7 @@ lua require('deepak.treesitter')
 lua require('deepak.gitsigns')
 lua require('deepak.comment')
 lua require('deepak.impatient')
+lua require('deepak.quarto')
 " lua require('deepak.surround')
 
 "==================================================================="
