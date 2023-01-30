@@ -68,3 +68,10 @@ if [ -f "/Users/dross/miniforge3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dross/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dross/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dross/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dross/google-cloud-sdk/completion.zsh.inc'; fi
