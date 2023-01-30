@@ -72,15 +72,23 @@
     // Intellisense
     "editor.suggestSelection": "recentlyUsed",
     "editor.parameterHints.enabled": true,
-    "python.defaultInterpreterPath": "",
+    "python.defaultInterpreterPath": "/Users/dross/miniforge3/envs/mlops/bin/python",
     "terminal.external.linuxExec": "xterm-256color",
     "remote.SSH.connectTimeout": 60,
     "redhat.telemetry.enabled": false,
     "python.formatting.provider": "black",
     "vs-kubernetes": {
         "vscode-kubernetes.helm-path.mac": "/Users/dross/.vs-kubernetes/tools/helm/darwin-arm64/helm",
-        "vscode-kubernetes.minikube-path.mac": "/Users/dross/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
-    }
+        "vscode-kubernetes.minikube-path.mac": "/Users/dross/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
+        "vs-kubernetes.minikube-show-information-expiration": "2023-02-01T19:53:23.667Z"
+    },
+    "workbench.editor.enablePreview": false,
+    "markdown.updateLinksOnFileMove.enabled": "prompt",
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "quarto.mathjax.theme": "dark"
 
     //Jupyter plots barely visible in dark theme background. https://stackoverflow.com/a/66601351/13539744
     // "jupyter.runStartupCommands": [
