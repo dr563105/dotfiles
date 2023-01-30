@@ -18,11 +18,13 @@ extension_list=(
     hashicorp.terraform
     ms-kubernetes-tools.vscode-kubernetes-tools
     ms-toolsai.jupyter-keymap
+    ms-vscode.remote-explorer
     ms-vscode-remote.remote-containers
     ms-vscode-remote.remote-ssh
     ms-vscode-remote.remote-ssh-edit
     rangav.vscode-thunder-client
     redhat.vscode-yaml
+    quarto.quarto
 )
 cpp_extension=(
     cschlosser.doxdocgen
