@@ -60,6 +60,9 @@ alias jn='jupyter notebook'
 alias nvd='nvidia-smi'
 alias nvdw='watch -n 1 nvidia-smi'
 
+# for docker-compose
+alias dc='docker-compose'
+
 # for prefect
 alias pstart='prefect orion start'
 alias pconfig='prefect config view'
