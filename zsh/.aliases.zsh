@@ -76,6 +76,8 @@ alias pps='pipenv shell'
 alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
+#vlc
+alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 mkcdir ()
 {
     mkdir -p -- "$1" &&
