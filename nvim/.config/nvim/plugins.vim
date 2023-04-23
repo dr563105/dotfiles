@@ -77,7 +77,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     "Quarto 
     Plug 'quarto-dev/quarto-nvim'
-    Plug 'neovim/nvim-lspconfig'
+    " Plug 'neovim/nvim-lspconfig' # already installed
     Plug 'jmbuhr/otter.nvim'
 call plug#end()
 
