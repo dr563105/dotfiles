@@ -1,1 +1,1 @@
-require('surround').setup{}
+require('nvim-surround').setup{}
