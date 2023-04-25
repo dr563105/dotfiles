@@ -22,8 +22,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " need to update to nvim
     
     "NVIM surround
-    Plug 'tpope/vim-surround'
+    " Plug 'tpope/vim-surround'
     " Plug 'blackcauldron7/surround.nvim'
+    Plug 'https://github.com/kylechui/nvim-surround'
 
     "Vim Latex plugin
     Plug 'lervag/vimtex'
@@ -43,7 +44,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'phanviet/vim-monokai-pro'
     
     " Nvim Playground for color scheme testing
-    Plug 'nvim-treesitter/playground' 
+    " Plug 'nvim-treesitter/playground' 
     "
     "" Install telescope
     Plug 'nvim-lua/plenary.nvim'
@@ -51,29 +52,35 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
     
     " Devicons
-    Plug 'kyazdani42/nvim-web-devicons'                
+    Plug 'nvim-tree/nvim-web-devicons'                
     " Tree file browser
-    Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'nvim-tree/nvim-tree.lua'
     "Status line
     Plug 'nvim-lualine/lualine.nvim'    
+    
     " Syntax highlighting. Recommended updating the parsers on update
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  
+    
     " LSP
     Plug 'neovim/nvim-lspconfig'
-    "Autocomplete   
+    Plug 'williamboman/mason.nvim',{ 'do': ':MasonUpdate' }
+    Plug 'williamboman/mason-lspconfig.nvim'
+
+    " Autocomplete   
     Plug 'hrsh7th/nvim-cmp' " -- Autocompletion core engine plugin
     Plug 'hrsh7th/cmp-nvim-lsp' " -- LSP source for nvim-cmp
     Plug 'hrsh7th/cmp-buffer' " -- buffer completion
     Plug 'hrsh7th/cmp-path' " -- path completion
     Plug 'saadparwaiz1/cmp_luasnip' " -- snippet compeletion
+    Plug 'jmbuhr/cmp-pandoc-references'
 
     "snippets
-    Plug 'L3MON4D3/LuaSnip'
+    Plug 'L3MON4D3/LuaSnip', { 'tag': 'v1.*', 'do': 'make install_jsregexp'}
     Plug 'rafamadriz/friendly-snippets' " --more snippets
     " Plug 'onsails/lspkind-nvim' " -- vscode-like pictograms 
     
     "Profiling
-    Plug 'lewis6991/impatient.nvim'
+    " Plug 'lewis6991/impatient.nvim'
 
     "Quarto 
     Plug 'quarto-dev/quarto-nvim'
@@ -92,13 +99,14 @@ colorscheme nightfox "OceanicNext "afterglow
 lua require('deepak.telescope')
 lua require('deepak.lualine')
 lua require('deepak.lsp_config')
+lua require('deepak.completions')
 lua require('deepak.nvim-tree')
 lua require('deepak.treesitter')
 lua require('deepak.gitsigns')
 lua require('deepak.comment')
-lua require('deepak.impatient')
+" lua require('deepak.impatient')
 lua require('deepak.quarto')
-" lua require('deepak.surround')
+lua require('deepak.surround')
 
 "==================================================================="
 "settings for vimtex
