@@ -57,28 +57,35 @@ require("telescope").setup{
   }
 }
 
-vim.api.nvim_set_keymap('n', '<Leader>p', 
-    ':lua require\'deepak.telescope\'.project_files()<Cr>', 
+-- See `:help telescope.builtin`
+vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>/', function()
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer' })
+
+vim.keymap.set('n', '<Leader>p', 
+    ':lua require\'deepak.telescope\'.project_files()<Cr>', {desc= "Search [P]roject"}, 
         {noremap = true, silent = true})
 
-vim.api.nvim_set_keymap('n', '<Leader>df', 
-    ':lua require\'deepak.telescope\'.search_dotfiles()<Cr>', 
+vim.keymap.set('n', '<Leader>df', 
+    ':lua require\'deepak.telescope\'.search_dotfiles()<Cr>', {desc="Search [D]ot [F]iles"},
         {noremap = true, silent = true})
 
-vim.api.nvim_set_keymap('n', '<Leader>ff', 
-    ':lua require\'telescope.builtin\'.find_files()<Cr>', 
+vim.keymap.set('n', '<Leader>ff', 
+    ':lua require\'telescope.builtin\'.find_files()<Cr>', {desc="[F]ind [F]iles"},
         {noremap = true, silent = true})
 
-vim.api.nvim_set_keymap('n', '<Leader>fg', 
-    ':lua require\'telescope.builtin\'.live_grep()<Cr>', 
+vim.keymap.set('n', '<Leader>fg', 
+    ':lua require\'telescope.builtin\'.live_grep()<Cr>', {desc="[F]ind by [G]rep}"},
         {noremap = true, silent = true})
 
-vim.api.nvim_set_keymap('n', '<Leader>fb',
-    ':lua require\'telescope.builtin\'.buffers()<Cr>', 
-        {noremap = true, silent = true})
-
-vim.api.nvim_set_keymap('n', '<Leader>fh', 
-    ':lua require\'telescope.builtin\'.help_tags()<Cr>', 
+vim.keymap.set('n', '<Leader>sh', 
+    ':lua require\'telescope.builtin\'.help_tags()<Cr>',{desc="[S]earch[H]elp"}, 
         {noremap = true, silent = true})
 
 return M
