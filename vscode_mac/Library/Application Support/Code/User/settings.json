@@ -30,7 +30,6 @@
     "files.autoSaveDelay": 10000,
     "search.showLineNumbers": true,
     "telemetry.telemetryLevel": "off",
-    "breadcrumbs.enabled": true,
 
     "vim.leader": "<space>",
     "vim.enableNeovim": true,
@@ -80,7 +79,7 @@
     "vs-kubernetes": {
         "vscode-kubernetes.helm-path.mac": "/Users/dross/.vs-kubernetes/tools/helm/darwin-arm64/helm",
         "vscode-kubernetes.minikube-path.mac": "/Users/dross/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
-        "vs-kubernetes.minikube-show-information-expiration": "2023-02-01T19:53:23.667Z"
+        "vs-kubernetes.minikube-show-information-expiration": "2023-09-28T12:05:49.841Z"
     },
     "workbench.editor.enablePreview": false,
     "markdown.updateLinksOnFileMove.enabled": "prompt",
@@ -88,7 +87,13 @@
         "jsdelivr.com",
         "unpkg.com"
     ],
-    "quarto.mathjax.theme": "dark"
+    "quarto.mathjax.theme": "dark",
+    "quarto.render.renderOnSave": true,
+    "quarto.visualEditor.spellingDictionary": "en_GB",
+    "quarto.render.previewType": "none",
+    "breadcrumbs.enabled": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "sqltools.useNodeRuntime": true
 
     //Jupyter plots barely visible in dark theme background. https://stackoverflow.com/a/66601351/13539744
     // "jupyter.runStartupCommands": [
