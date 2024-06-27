@@ -93,7 +93,10 @@
     "quarto.render.previewType": "none",
     "breadcrumbs.enabled": false,
     "diffEditor.ignoreTrimWhitespace": false,
-    "sqltools.useNodeRuntime": true
+    "sqltools.useNodeRuntime": true,
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    }
 
     //Jupyter plots barely visible in dark theme background. https://stackoverflow.com/a/66601351/13539744
     // "jupyter.runStartupCommands": [
