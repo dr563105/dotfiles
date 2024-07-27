@@ -43,13 +43,13 @@ autoload -Uz compinit && compinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # ---- path variables -----
-export PATH="/opt/homebrew/sbin:$PATH"
+export PATH=/opt/homebrew/sbin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
-export PATH=/opt/homebrew/bin/git:$PATH
 export PATH=/Users/dross/texlive/2022/bin/universal-darwin:$PATH
 export MANPATH=/Users/dross/texlive/2022/texmf-dist/doc/man:$MANPATH
 export INFOPATH=Users/dross/texlive/2022/texmf-dist/doc/info:$INFOPATH
 
+export PATH=/Users/dross/Downloads/platform-tools:$PATH
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/dross/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -77,3 +77,7 @@ if [ -f '/Users/dross/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dro
 #cargo(rust) env set 
 source "$HOME/.cargo/env"
 
+export PATH=/opt/homebrew/opt/curl/bin:$PATH
+
+#Disable homebrew auto-update
+export HOMEBREW_NO_AUTO_UPDATE=1
