@@ -34,7 +34,6 @@ alias clone='git clone'
 alias commit='git commit -m'
 alias fetch='git fetch'
 alias pull='git pull origin'
-alias prebase='git pull --rebase' #pull=fetch+merge
 alias push='git push -u origin'
 alias status='git status'
 alias tag='git tag'
