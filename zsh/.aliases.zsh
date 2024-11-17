@@ -62,10 +62,6 @@ alias nvdw='watch -n 1 nvidia-smi'
 # for docker-compose
 alias dc='docker-compose'
 
-# for prefect
-alias pstart='prefect orion start'
-alias pconfig='prefect config view'
-
 # for pipenv
 alias ppi='pipenv install'
 alias pps='pipenv shell'
