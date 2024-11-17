@@ -9,25 +9,41 @@ ZSH_THEME="mytheme"
 # shortcut to this dotfiles path is $DOTFILES
 export DOTFILES="$HOME/.dotfiles"
 
+# Uncomment the following line to disable omz bi-weekly auto-update checks.
+DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically omz update without prompting.
+DISABLE_UPDATE_PROMPT="true"
+
 if [ -f $ZSH/oh-my-zsh.sh ]; then
     source $ZSH/oh-my-zsh.sh
 fi
 
-if [ -f $HOME/.zsh_plugins.sh ]; then
-    source $HOME/.zsh_plugins.sh
+#Prevent history from storing secrets, keys. Start with a space before the command to make history ignore it.
+export HIST_IGNORE="(ls*|cat*|*AWS*|*SECRET*|*KEY*|*PASS*|*DBT_*|*SNOWFLAKE_*)"
+setopt HIST_IGNORE_SPACE
+
+# ---- path variables -----
+export PATH=/opt/homebrew/sbin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/Users/dross/texlive/2022/bin/universal-darwin:$PATH
+export MANPATH=/Users/dross/texlive/2022/texmf-dist/doc/man:$MANPATH
+export INFOPATH=Users/dross/texlive/2022/texmf-dist/doc/info:$INFOPATH
+
+export PATH=/Users/dross/Downloads/platform-tools:$PATH
+export PATH=/opt/homebrew/opt/curl/bin:$PATH
+
+# Activate antidote for zsh plugins. Refer https://getantidote.github.io/install
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+
+if [ -f $HOME/.zsh_plugins.txt ]; then
+    # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+    antidote load
 fi
 
 # https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg, https://robotmoon.com/256-colors/
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#00ffd7,bg=bold,underline' 
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-DISABLE_UPDATE_PROMPT="true"
-
-#Prevent history from storing secrets, keys. Start with a space before the command to make history ignore it.
-setopt HIST_IGNORE_SPACE
 
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
@@ -39,17 +55,14 @@ if [ -f ~/.aliases.zsh ]; then
 fi
 
 # autoload -U +X bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
+autoload -Uz compinit; compinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
 
-# ---- path variables -----
-export PATH=/opt/homebrew/sbin:$PATH
-export PATH=/opt/homebrew/bin:$PATH
-export PATH=/Users/dross/texlive/2022/bin/universal-darwin:$PATH
-export MANPATH=/Users/dross/texlive/2022/texmf-dist/doc/man:$MANPATH
-export INFOPATH=Users/dross/texlive/2022/texmf-dist/doc/info:$INFOPATH
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
-export PATH=/Users/dross/Downloads/platform-tools:$PATH
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/dross/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -77,7 +90,8 @@ if [ -f '/Users/dross/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dro
 #cargo(rust) env set 
 source "$HOME/.cargo/env"
 
-export PATH=/opt/homebrew/opt/curl/bin:$PATH
-
 #Disable homebrew auto-update
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+#dbt config
+export DBT_PROFILES_DIR=~/.config/.dbt/
