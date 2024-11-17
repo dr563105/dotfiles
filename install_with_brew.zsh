@@ -4,14 +4,15 @@ formula_list=(
     antidote
     bat
     coreutils
+    curl
     fd
     git
-    pyright
-    tmux
+    marksman
     tree
     tree-sitter
     ripgrep
     stow
+    wget
 )
 
 cask_list=(
@@ -19,6 +20,7 @@ cask_list=(
     audacity
     authy
     brave-browser
+    discord
     filebot
     firefox
     google-chrome
