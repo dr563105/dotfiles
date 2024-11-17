@@ -2,7 +2,7 @@
 ## ZSH and related
 
 ```shell
-brew install zsh
+brew install zsh # only in linux sub-systems. Mac comes with ZSH installed.
 ```
 
 To use zsh ability to use plugins to bring in features and also be aware of performance,
@@ -12,11 +12,15 @@ To use zsh ability to use plugins to bring in features and also be aware of perf
 brew install antidote
 ```
 All plugins necessary go inside a text file and that file is bundled to a shell script. 
+To install the `.zsh_plugins.txt`(use `stow zsh` to get in the right directory),
 
 ```bash
-antidote bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
-echo -n 'source ~/.zsh_plugins.sh' >> ~/.zshrc
+echo -n 'source /path/to/antidote.zsh' >> ~/.zshrc
+echo -n 'antidote load' >> ~/.zshrc #loads whenever `zsh_plugins.txt` changes.
 ```
+
+To update antidote, use `antidote update`.
+
 ##homebrew
 To know the dependencies of an installed package 
 ```
@@ -92,7 +96,7 @@ Goto the installed dir path and execute `make` or reinstall fzf-native.
 
 ## GNU Stow
 
-GNU Stow is installed through homebrew `brew install stow`
+GNU Stow is installed through homebrew `brew install stow`. To update formula in Mac, run `brew update` first.
 
 `sudo apt install stow` for Ubuntu. 
 

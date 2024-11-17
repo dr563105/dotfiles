@@ -10,6 +10,8 @@ $HOME folder. We can do this manually or using [GNU Stow](https://www.gnu.org/so
 Since GNU Stow can automatically manage symlinked files, it is the recommended
 tool for setting up the dotfiles.
 
+Use either homebrew or `apt install stow` to install the software.
+
 The first step is to clone this repository in your $HOME folder:
 
 ```shell
@@ -60,3 +62,5 @@ We can now write the changes to disk removing the `-n` modifier:
 cd ~/.dotfiles
 stow git
 ```
+
+To ignore files, create `.stow-global-ignore` in home directory and add in files that are unnecessary.
