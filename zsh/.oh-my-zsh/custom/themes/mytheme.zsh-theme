@@ -33,15 +33,22 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$teal%}?"
 ZSH_THEME_GIT_PROMPT_SHA_BEFORE="[%{$darkorange3%}"
 ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$reset_color%}]"
 
+#function to get git branch name
+function git_prompt_info {
+    git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null
+}
+
 function get_git_prompt {
     if [[ -n $(git rev-parse --is-inside-work-tree 2>/dev/null) ]]; then
-        local git_status="$(git_prompt_status)"
+        local git_status="$(git_prompt_status)" 
         if [[ -n $git_status ]]; then
             git_status="[$git_status%{$reset_color%}]"
         fi
-        local gp="$(git_prompt_info)"
-        gp="%{$slateblue1%}$gp"
-        local git_prompt="<$gp$git_status>"
+        
+        local branch_name="$(git_prompt_info)" # Fetch branch name
+        branch_name="%{$slateblue1%}$branch_name" # Add coloring
+        local git_prompt="<${branch_name}$git_status>" # Include branch in the final prompt
+        
         echo $git_prompt
     fi
 }
