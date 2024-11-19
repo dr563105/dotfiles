@@ -1,0 +1,11 @@
+# https://www.ditig.com/256-colors-cheat-sheet
+export indianred=%F{131}
+export orangered1=%F{202}
+export palegreen3=%F{77}
+export darkgoldenrod=%F{136}
+export darkorange3=%F{166}
+export teal=%F{6}
+export green3=%F{40}
+export slateblue1=%F{99}
+export yellow1=%F{226}
+export red3=%F{160}
