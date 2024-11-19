@@ -1,0 +1,107 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+ZSH_THEME="mytheme" # assign theme for OMZ to pick up the theme. Place the theme file in .oh-my-zsh/custom/themes/
+
+# Set any helper functions used by your antidote config.
+function is-macos() {
+  [[ $OSTYPE == darwin* ]]
+}
+
+# shortcut to this dotfiles path is $DOTFILES
+export DOTFILES="$HOME/.dotfiles"
+
+# Uncomment the following line to disable omz bi-weekly auto-update checks.
+DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically omz update without prompting.
+DISABLE_UPDATE_PROMPT="true"
+
+#Initialise OMZ. Download OMZ and Uncomment below if omz needs to be used.
+if [ -f $HOME/.oh-my-zsh/oh-my-zsh.sh ]; then
+    source $ZSH/oh-my-zsh.sh
+fi
+
+#Prevent history from storing secrets, keys. Start with a space before the command to make history ignore it.
+export HIST_IGNORE="(ls*|cat*|*AWS*|*SECRET*|*KEY*|*PASS*|*DBT_*|*SNOWFLAKE_*)"
+setopt HIST_IGNORE_SPACE
+
+# ---- path variables -----
+export PATH=/opt/homebrew/sbin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/Users/dross/texlive/2022/bin/universal-darwin:$PATH
+export MANPATH=/Users/dross/texlive/2022/texmf-dist/doc/man:$MANPATH
+export INFOPATH=Users/dross/texlive/2022/texmf-dist/doc/info:$INFOPATH
+
+export PATH=/Users/dross/Downloads/platform-tools:$PATH
+export PATH=/opt/homebrew/opt/curl/bin:$PATH
+
+
+# Activate antidote for zsh plugins. Refer https://getantidote.github.io/install
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+
+# $ZDOTDIR is defined in ~/.zshenv file. Default value of ZDOTDIR is ~/$HOME
+if [ -f $ZDOTDIR/.zsh_plugins.txt ]; then
+    # initialise plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+    antidote load
+fi
+
+#to know antidote home, use `antidote home`
+#to clear out zsh plugins, use `rm -rf $(antidote home) && rm ~/.zsh_plugins.zsh`
+#to list installed plugins, use `antidote list`
+#to update plugins, use `antidote update`
+
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+export OPENSSL_ROOT_DIR=/opt/homebrew/opt/openssl@1.1
+
+# ---- aliases -----
+#place aliases file in the home directory and uncomment
+if [ -f ~/.aliases.zsh ]; then
+     source $HOME/.aliases.zsh
+fi
+
+# autoload -U +X bashcompinit && bashcompinit
+autoload -Uz compinit; compinit
+
+# complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+# for zsh-history-search plugin. Movement setting.
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+
+# >>> conda initialise >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/dross/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then eval "$__conda_setup"
+else
+    if [ -f "/Users/dross/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/dross/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/dross/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/Users/dross/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/Users/dross/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialise <<<
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dross/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dross/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dross/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dross/google-cloud-sdk/completion.zsh.inc'; fi
+
+#cargo(rust) env set 
+source "$HOME/.cargo/env"
+
+#Disable homebrew auto-update
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+#dbt config
+export DBT_PROFILES_DIR=~/.config/.dbt/
