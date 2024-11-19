@@ -2,3 +2,7 @@
 antibody/
 plugged/
 undodir/
+.zcompdump
+.zsh_history
+.zsh_sessions/
+.zsh_plugins.zsh
