@@ -26,15 +26,16 @@ with the command:
 
 ```shell
 cd ~/.dotfiles
-stow -n nvim # For nvim configuration
-stow -n git # For git configuration
+stow -vn nvim # For nvim configuration
+stow -vn git # For git configuration
+stow -vn zsh # For zsh configuration
 ```
 
 We may get some warning messages like the following one.
 
 ```shell
 cd ~/.dotfiles
-stow -n git
+stow -vn git
 WARNING! stowing git would cause conflicts:
   * existing target is neither a link nor a directory: .gitconfig
 All operations aborted.
@@ -52,7 +53,7 @@ After all conflicting files have been renamed, we should not get any warnings:
 
 ```shell
 cd ~/.dotfiles
-stow -n git
+stow -vn git
 WARNING: in simulation mode so not modifying filesystem.
 ```
 
@@ -60,7 +61,9 @@ We can now write the changes to disk removing the `-n` modifier:
 
 ```shell
 cd ~/.dotfiles
-stow git
+stow -v git
 ```
 
 To ignore files, create `.stow-global-ignore` in home directory and add in files that are unnecessary.
+Important to remember `.stow-local-ignore` supersedes `.stow-global-ignore` whenever
+present.
