@@ -1,0 +1,57 @@
+# If you use Oh-My-Zsh with antidote, load this plugin FIRST to set things up so you
+# don't have to worry about whether OMZ will work correctly. https://github.com/getantidote/use-omz
+getantidote/use-omz
+
+# for zsh functions. https://github.com/mattmc3/zfunctions
+#mattmc3/zfunctions
+
+# initialise zsh completion system(compinit). https://github.com/mattmc3/ez-compinit
+mattmc3/ez-compinit
+
+# Use all of Oh My Zsh's lib directory. needed as custom theme misbehaves with colouring.
+ohmyzsh/ohmyzsh path:lib
+
+# zsh-completions and suggestions
+zsh-users/zsh-completions kind:fpath path:src
+zsh-users/zsh-autosuggestions
+
+# for history search
+zsh-users/zsh-history-substring-search
+
+# for syntax highlighting
+zdharma-continuum/fast-syntax-highlighting
+
+# coloured man pages
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+
+# display useful error messages
+ohmyzsh/oh-my-zsh path:plugins/command-not-found
+
+# For file extraction
+ohmyzsh/ohmyzsh path:plugins/extract
+
+# To navigate directories faster
+agkozak/zsh-z
+
+# load my custom theme
+${ZDOTDIR:-$HOME}/zsh_custom_themes/colours.zsh
+${ZDOTDIR:-$HOME}/zsh_custom_themes/mytheme.zsh-theme
+
+# load my command aliases
+${ZDOTDIR:-$HOME}/.aliases.zsh
+
+# aliases for brew commands
+ohmyzsh/ohmyzsh path:plugins/brew conditional:is-macos
+
+# aliases for docker-compose
+# ohmyzsh/ohmyzsh path:plugins/docker-compose
+
+# aliases for kind k8s cluster
+# ohmyzsh/ohmyzsh path:plugins/kind
+
+# aliases for kubectl
+# ohmyzsh/ohmyzsh path:plugins/kubectl
+
+# aliases for pipenv
+# ohmyzsh/ohmyzsh path:plugins/pipenv
+
